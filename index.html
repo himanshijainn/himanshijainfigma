@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Himanshi Jain — Portfolio.fig</title>
+<meta name="description" content="Himanshi Jain — UX Designer based in Gurugram, India. 3+ years designing scalable SaaS and D2C products. 18 case studies, presented as a Figma file."/>
+<meta name="author" content="Himanshi Jain"/>
+<!-- Open Graph · update og:url + og:image to the final deploy URL before publishing -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Himanshi Jain Portfolio"/>
+<meta property="og:title" content="Himanshi Jain — Portfolio.fig"/>
+<meta property="og:description" content="3+ years designing scalable SaaS and D2C products. 18 case studies — explore them inside a Figma-style interface."/>
+<meta property="og:url" content="https://himanshijain.in/"/>
+<meta property="og:image" content="https://himanshiijain.netlify.app/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Himanshi Jain — UX Designer Portfolio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Himanshi Jain — Portfolio.fig"/>
+<meta name="twitter:description" content="3+ years designing scalable SaaS and D2C products. 18 case studies — explore them inside a Figma-style interface."/>
+<meta name="twitter:image" content="https://himanshiijain.netlify.app/og-image.png"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1a1a'/%3E%3Ctext x='9' y='44' font-family='Arial,sans-serif' font-weight='800' font-size='34' fill='%2318a0fb'%3EH%3C/text%3E%3Ctext x='35' y='44' font-family='Arial,sans-serif' font-weight='800' font-size='34' fill='%23f24e1e'%3EJ%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<style>
+:root {
+  --bg-app:#1e1e1e; --bg-toolbar:#2c2c2c; --bg-sidebar:#2c2c2c;
+  --bg-canvas:#1a1a1a; --bg-panel:#2c2c2c; --bg-item:#383838;
+  --bg-item-hover:#404040; --bg-selected:#18a0fb22;
+  --border:#3a3a3a; --border-light:#444;
+  --text-primary:#e0e0e0; --text-secondary:#999; --text-muted:#666; --text-label:#ccc;
+  --accent:#18a0fb; --accent-purple:#9747ff; --accent-green:#1bc47d; --accent-red:#f24822;
+  --frame-bg:#ffffff; --frame-text:#1a1a1a;
+  --dot-color:rgba(255,255,255,0.055);
+  --splash-bg:#1e1e1e; --splash-text:#fff; --splash-sub:rgba(255,255,255,0.45);
+  --chip-bg:#2c2c2c; --chip-border:#444; --chip-text:#ccc;
+}
+[data-theme="light"] {
+  --bg-app:#f0f0f0; --bg-toolbar:#ffffff; --bg-sidebar:#ffffff;
+  --bg-canvas:#e8e8e8; --bg-panel:#ffffff; --bg-item:#f5f5f5;
+  --bg-item-hover:#ebebeb; --bg-selected:#18a0fb18;
+  --border:#e0e0e0; --border-light:#d0d0d0;
+  --text-primary:#1a1a1a; --text-secondary:#666; --text-muted:#999; --text-label:#333;
+  --frame-bg:#ffffff; --frame-text:#1a1a1a;
+  --dot-color:rgba(0,0,0,0.055);
+  --splash-bg:#f9f9f9; --splash-text:#1a1a1a; --splash-sub:rgba(0,0,0,0.45);
+  --chip-bg:#f0f0f0; --chip-border:#ddd; --chip-text:#444;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;font-size:12px;background:var(--bg-app);color:var(--text-primary)}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+
+/* ── SPLASH ─────────────────────────────────────── */
+#splash{
+  position:fixed;inset:0;z-index:999;
+  background:var(--splash-bg);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:24px;
+  transition:opacity 450ms ease, transform 450ms ease;
+}
+.splash-toggle{
+  position:absolute;top:16px;right:16px;
+  width:44px;height:22px;border-radius:999px;
+  cursor:pointer;border:1px solid var(--chip-border);
+  transition:background 300ms ease;
+  flex-shrink:0;overflow:hidden;
+}
+[data-theme="dark"] .splash-toggle{background:linear-gradient(180deg,#0b1026 0%,#1a2456 100%);border-color:#3a4a6a}
+[data-theme="light"] .splash-toggle{background:linear-gradient(180deg,#87ceeb 0%,#d4eef7 100%);border-color:#b0d4e8}
+.splash-toggle__knob{
+  position:absolute;top:2px;left:2px;
+  width:16px;height:16px;border-radius:50%;
+  transition:transform 300ms cubic-bezier(0.4,0,0.2,1),background 300ms;
+}
+[data-theme="dark"] .splash-toggle__knob{transform:translateX(22px);background:radial-gradient(circle at 35% 35%,#fffff0,#ddd8a0);box-shadow:0 0 6px 2px rgba(200,200,100,0.3)}
+[data-theme="light"] .splash-toggle__knob{transform:translateX(0);background:radial-gradient(circle at 40% 38%,#fff7c0,#FFA500);box-shadow:0 0 6px 2px rgba(255,180,0,0.4)}
+
+.splash-logo{margin-bottom:28px}
+.splash-title{
+  font-size:clamp(26px,5vw,50px);font-weight:700;
+  color:var(--splash-text);text-align:center;
+  letter-spacing:-0.02em;line-height:1.15;
+  margin-bottom:10px;max-width:560px;
+}
+.splash-sub{
+  font-size:15px;color:var(--splash-sub);
+  text-align:center;margin-bottom:36px;
+  max-width:380px;line-height:1.65;
+}
+.splash-box{
+  width:min(540px,92vw);
+  background:var(--chip-bg);
+  border:1px solid var(--chip-border);
+  border-radius:12px;padding:16px 18px;
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.3);
+  cursor:pointer;
+  transition:border-color 200ms;
+}
+.splash-box:hover{border-color:var(--accent)}
+.splash-box span{flex:1;font-size:14px;color:var(--text-muted)}
+.splash-box__arrow{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--bg-item);display:grid;place-items:center;flex-shrink:0;
+}
+.splash-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:40px}
+.splash-chip{
+  background:var(--chip-bg);border:1px solid var(--chip-border);
+  color:var(--chip-text);padding:7px 16px;border-radius:999px;
+  font-size:12px;cursor:pointer;transition:all 150ms;font-family:'Inter',sans-serif;
+}
+.splash-chip:hover{border-color:var(--accent);color:var(--accent)}
+.splash-footer{font-size:11px;color:var(--text-muted);text-align:center}
+
+/* ── APP ─────────────────────────────────────────── */
+.app{
+  display:flex;flex-direction:column;height:100vh;overflow:hidden;
+  opacity:0;pointer-events:none;transition:opacity 400ms ease;
+}
+.app.visible{opacity:1;pointer-events:auto}
+
+/* ── TOOLBAR ─────────────────────────────────────── */
+.toolbar{
+  height:40px;min-height:40px;
+  background:var(--bg-toolbar);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 10px;gap:4px;
+  z-index:100;flex-shrink:0;
+}
+/* HJ logo */
+.hj-logo{
+  width:30px;height:30px;border-radius:7px;
+  display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
+  border:1px solid #444;overflow:hidden;
+}
+.hj-logo svg{width:22px;height:22px}
+.toolbar__filename{
+  font-size:12px;font-weight:500;color:var(--text-primary);
+  padding:4px 8px;border-radius:4px;
+  cursor:pointer;display:flex;align-items:center;gap:5px;
+  transition:background 150ms;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  max-width:200px;
+}
+.toolbar__filename:hover{background:var(--bg-item)}
+.toolbar__sep{width:1px;height:20px;background:var(--border);margin:0 4px;flex-shrink:0}
+.toolbar__tools{display:flex;align-items:center;gap:2px;flex-shrink:0}
+.toolbar__tool{
+  width:28px;height:28px;display:grid;place-items:center;
+  border-radius:4px;color:var(--text-secondary);transition:all 150ms;
+}
+.toolbar__tool:hover,.toolbar__tool.active{background:var(--bg-item);color:var(--text-primary)}
+.toolbar__tool.active{background:var(--accent);color:#fff}
+.toolbar__badge{
+  font-size:11px;font-weight:500;color:var(--text-secondary);
+  background:var(--bg-item);padding:3px 8px;border-radius:4px;
+  display:flex;align-items:center;gap:5px;
+}
+.toolbar__right{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}
+.share-btn{background:var(--accent);color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:500}
+.cv-btn-sm{
+  background:var(--bg-item);color:var(--text-primary);
+  padding:5px 10px;border-radius:6px;font-size:12px;font-weight:500;
+  border:1px solid var(--border-light);display:flex;align-items:center;gap:5px;
+  transition:background 150ms;
+}
+.cv-btn-sm:hover{background:var(--bg-item-hover)}
+/* toggle */
+.theme-toggle{
+  width:40px;height:21px;border-radius:999px;position:relative;
+  cursor:pointer;transition:background 300ms;flex-shrink:0;overflow:hidden;
+}
+[data-theme="dark"] .theme-toggle{background:linear-gradient(180deg,#0b1026 0%,#1a2456 100%);border:1px solid #3a4a6a}
+[data-theme="light"] .theme-toggle{background:linear-gradient(180deg,#87ceeb 0%,#d4eef7 100%);border:1px solid #b0d4e8}
+.theme-toggle__knob{
+  position:absolute;top:2px;left:2px;
+  width:15px;height:15px;border-radius:50%;
+  transition:transform 300ms cubic-bezier(0.4,0,0.2,1),background 300ms;
+}
+[data-theme="dark"] .theme-toggle__knob{transform:translateX(19px);background:radial-gradient(circle at 35% 35%,#fffff0,#ddd8a0);box-shadow:0 0 5px rgba(200,200,100,0.3)}
+[data-theme="light"] .theme-toggle__knob{transform:translateX(0);background:radial-gradient(circle at 40% 38%,#fff7c0,#FFA500);box-shadow:0 0 5px rgba(255,180,0,0.4)}
+
+/* mobile menu button */
+.mobile-menu-btn{
+  display:none;width:28px;height:28px;
+  border-radius:4px;place-items:center;
+  background:var(--bg-item);color:var(--text-secondary);
+  transition:all 150ms;
+}
+@media(max-width:700px){.mobile-menu-btn{display:grid}}
+
+/* ── MAIN ─────────────────────────────────────────── */
+.main{flex:1;display:flex;overflow:hidden;min-height:0;position:relative}
+
+/* ── SIDEBAR ─────────────────────────────────────── */
+.sidebar{
+  width:220px;min-width:220px;
+  background:var(--bg-sidebar);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  overflow:hidden;flex-shrink:0;
+  transition:transform 300ms ease;
+}
+@media(max-width:700px){
+  .sidebar{
+    position:absolute;left:0;top:0;bottom:0;z-index:50;
+    transform:translateX(-100%);
+    box-shadow:4px 0 20px rgba(0,0,0,0.4);
+  }
+  .sidebar.open{transform:translateX(0)}
+}
+.sidebar__header{
+  padding:8px 12px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.sidebar__tabs{display:flex;gap:2px}
+.sidebar__tab{
+  font-size:11px;font-weight:500;color:var(--text-muted);
+  padding:4px 10px;border-radius:4px;cursor:pointer;transition:all 150ms;
+}
+.sidebar__tab.active{background:var(--bg-item);color:var(--text-primary)}
+.sidebar__body{flex:1;overflow-y:auto;padding:8px 0}
+.sidebar__body::-webkit-scrollbar{width:4px}
+.sidebar__body::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:2px}
+
+.layer-group{margin-bottom:4px}
+.layer-group__title{
+  padding:4px 12px;font-size:10px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+}
+.layer-section{
+  display:flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:3px;cursor:pointer;
+  transition:background 100ms;font-size:11px;
+  color:var(--text-label);font-weight:500;
+}
+.layer-section:hover{background:var(--bg-item-hover)}
+.layer-section.active{color:var(--accent);background:var(--bg-selected)}
+.layer-section__arrow{font-size:9px;color:var(--text-muted);width:10px;flex-shrink:0}
+.layer-item{
+  display:flex;align-items:center;gap:6px;
+  padding:4px 12px 4px 20px;border-radius:3px;cursor:pointer;
+  transition:background 100ms;font-size:11px;color:var(--text-secondary);
+}
+.layer-item:hover{background:var(--bg-item-hover);color:var(--text-primary)}
+.layer-item.selected{background:var(--bg-selected);color:var(--accent)}
+.layer-item__icon{width:14px;height:14px;flex-shrink:0;opacity:0.7;display:grid;place-items:center}
+.layer-item__name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ── CANVAS ──────────────────────────────────────── */
+.canvas-wrap{
+  flex:1;position:relative;overflow:hidden;
+  background:var(--bg-canvas);
+  background-image:radial-gradient(circle,var(--dot-color) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.canvas{
+  position:absolute;inset:0;overflow:auto;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:40px 24px 60px;
+}
+.canvas::-webkit-scrollbar{width:6px;height:6px}
+.canvas::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:3px}
+.canvas-page{display:none;width:100%;max-width:860px;flex-direction:column;gap:28px;animation:pageIn 250ms ease both}
+.canvas-page.active{display:flex}
+@keyframes pageIn{from{opacity:0;transform:scale(0.97)}to{opacity:1;transform:scale(1)}}
+
+/* Frame */
+.frame{
+  background:var(--frame-bg);border-radius:2px;
+  position:relative;box-shadow:0 4px 32px rgba(0,0,0,0.35);
+  color:var(--frame-text);transition:box-shadow 200ms,outline 200ms;
+}
+.frame.highlighted{outline:2px solid var(--accent);outline-offset:3px;box-shadow:0 0 0 4px rgba(24,160,251,0.15),0 4px 32px rgba(0,0,0,0.35)}
+.frame__label{
+  position:absolute;top:-22px;left:0;
+  font-size:11px;font-weight:500;color:var(--text-secondary);
+  white-space:nowrap;pointer-events:none;
+}
+.canvas-label{
+  position:absolute;top:12px;left:12px;
+  background:var(--bg-toolbar);border:1px solid var(--border);
+  border-radius:4px;padding:4px 8px;
+  font-size:10px;color:var(--text-muted);
+  font-family:'JetBrains Mono',monospace;z-index:10;pointer-events:none;
+}
+
+/* ── ABOUT FRAMES ────────────────────────────────── */
+.about-hero{
+  padding:clamp(24px,5vw,48px);
+  background:linear-gradient(135deg,#0f0f23 0%,#1a1a3e 50%,#0f1a2e 100%);
+  color:#fff;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+}
+@media(max-width:500px){.about-hero{grid-template-columns:1fr}}
+.about-hero__avatar{display:grid;place-items:center}
+@media(max-width:500px){.about-hero__avatar{display:none}}
+.hero-avatar-box{
+  width:120px;height:120px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(24,160,251,0.15),rgba(151,71,255,0.15));
+  border:2px solid rgba(24,160,251,0.25);
+  display:grid;place-items:center;font-size:44px;flex-shrink:0;
+}
+.tag-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(24,160,251,0.12);border:1px solid rgba(24,160,251,0.25);
+  color:#18a0fb;padding:3px 10px;border-radius:999px;
+  font-size:11px;font-weight:500;margin-bottom:14px;
+}
+.tag-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#1bc47d;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-name{font-size:clamp(32px,6vw,48px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:6px}
+.hero-role{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:18px}
+.hero-quote{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;font-style:italic;border-left:2px solid #18a0fb;padding-left:12px;max-width:460px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);background:#f8f9fa}
+@media(max-width:480px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-cell{padding:16px 20px;border-right:1px solid #ebebeb;display:flex;flex-direction:column;gap:3px}
+.stat-cell:last-child,.stat-cell:nth-child(2):last-child{border-right:none}
+@media(max-width:480px){.stat-cell:nth-child(2){border-right:none}.stat-cell:nth-child(3){border-top:1px solid #ebebeb}}
+.stat-value{font-size:26px;font-weight:700;line-height:1}
+.stat-label{font-size:10px;color:#888;font-weight:500}
+.about-bio{padding:clamp(20px,4vw,32px) clamp(20px,5vw,48px);background:#fff}
+.about-bio h3{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:10px}
+.about-bio p{font-size:12px;color:#555;line-height:1.75;margin-bottom:10px}
+.bio-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.bio-tag{background:#f0f4ff;color:#18a0fb;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:500;border:1px solid #dce8ff}
+
+/* ── PROJECTS ─────────────────────────────────────── */
+.projects-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:#e0e0e0;border:1px solid #e0e0e0;
+  border-radius:2px;overflow:hidden;
+}
+@media(max-width:600px){.projects-grid{grid-template-columns:1fr}}
+.pcard{background:#fff;padding:18px;cursor:pointer;transition:background 150ms;position:relative}
+.pcard:hover{background:#fafbff}
+.pcard.featured{
+  grid-column:span 3;
+  background:linear-gradient(135deg,#0f0f23,#1a1a3e);color:#fff;
+  padding:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+@media(max-width:600px){.pcard.featured{grid-column:span 1;flex-direction:column;align-items:flex-start}}
+.pcard__num{font-family:'JetBrains Mono',monospace;font-size:10px;color:#aaa;margin-bottom:5px}
+.pcard__title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:5px;line-height:1.3}
+.pcard.featured .pcard__title{color:#fff;font-size:16px}
+.pcard__desc{font-size:11px;color:#777;line-height:1.5}
+.pcard.featured .pcard__desc{color:rgba(255,255,255,0.55)}
+.pcard__tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.pcard__tag{background:#f0f0f0;color:#666;padding:2px 7px;border-radius:3px;font-size:10px}
+.pcard.featured .pcard__tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65)}
+.pcard__link{display:inline-flex;align-items:center;gap:4px;color:#18a0fb;font-size:11px;font-weight:500;margin-top:8px}
+.pcard__badge{position:absolute;top:10px;right:10px;background:#e8f5e8;color:#1bc47d;font-size:10px;font-weight:600;padding:2px 7px;border-radius:999px}
+.featured-badge{background:rgba(24,160,251,0.18);color:#18a0fb;border:1px solid rgba(24,160,251,0.3);font-size:11px;font-weight:500;padding:4px 12px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+
+/* ── RESUME ──────────────────────────────────────── */
+.resume-frame{padding:clamp(20px,4vw,40px) clamp(20px,5vw,48px);background:#fff}
+.resume-section{margin-bottom:28px}
+.resume-section:last-child{margin-bottom:0}
+.resume-section__title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#18a0fb;margin-bottom:14px;padding-bottom:7px;border-bottom:1px solid #eee}
+.resume-entry{display:grid;grid-template-columns:8px 1fr;gap:14px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f5f5f5}
+.resume-entry:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.resume-dot{width:8px;height:8px;border-radius:50%;background:#18a0fb;margin-top:4px;flex-shrink:0}
+.resume-title{font-size:13px;font-weight:600;color:#1a1a1a}
+.resume-co{font-size:12px;color:#18a0fb;font-weight:500}
+.resume-meta{font-size:11px;color:#aaa;font-family:'JetBrains Mono',monospace;margin:3px 0 6px}
+.resume-desc{font-size:12px;color:#666;line-height:1.65}
+.skills-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.chip{padding:3px 9px;border-radius:4px;font-size:11px;font-weight:500}
+.chip.b{background:#e8f4ff;color:#18a0fb}
+.chip.g{background:#e8f5e8;color:#1bc47d}
+.chip.p{background:#f0e8ff;color:#9747ff}
+.chip.o{background:#fff0e8;color:#f24822}
+
+/* ── CONTACT ──────────────────────────────────────── */
+.contact-frame{background:linear-gradient(135deg,#0f0f23,#1a1a3e);padding:clamp(28px,5vw,48px);color:#fff}
+.contact-frame h2{font-size:clamp(22px,4vw,32px);font-weight:700;margin-bottom:6px;letter-spacing:-0.01em}
+.contact-frame p{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:24px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.ccard div{min-width:0}
+.ccard__value{word-break:break-word;overflow-wrap:anywhere;line-height:1.35}
+.ccard{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;padding:14px;display:flex;align-items:center;gap:10px;
+  cursor:pointer;transition:all 200ms;text-decoration:none;color:#fff;
+}
+.ccard:hover{background:rgba(255,255,255,0.1);border-color:rgba(24,160,251,0.4)}
+.ccard__icon{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-size:15px;flex-shrink:0}
+.ccard__label{font-size:10px;color:rgba(255,255,255,0.35);font-family:'JetBrains Mono',monospace;margin-bottom:3px}
+.ccard__value{font-size:12px;font-weight:500}
+.avail-bar{margin-top:20px;background:rgba(27,196,125,0.08);border:1px solid rgba(27,196,125,0.2);border-radius:8px;padding:14px;display:flex;align-items:center;gap:10px}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#1bc47d;flex-shrink:0;animation:blink 2s ease infinite}
+.avail-bar p{font-size:12px;color:rgba(255,255,255,0.75)}
+
+/* ── RIGHT PANEL ─────────────────────────────────── */
+.panel{
+  width:220px;min-width:220px;background:var(--bg-panel);
+  border-left:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden;flex-shrink:0;
+}
+@media(max-width:900px){.panel{display:none}}
+.panel__section{border-bottom:1px solid var(--border);padding:10px 12px}
+.panel__title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px}
+.panel__row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.panel__label{font-size:11px;color:var(--text-secondary)}
+.pval{font-size:11px;color:var(--text-primary);background:var(--bg-item);padding:2px 7px;border-radius:3px;font-family:'JetBrains Mono',monospace}
+.pval.a{color:var(--accent)}.pval.g{color:var(--accent-green)}.pval.p{color:var(--accent-purple)}
+.var-badge{display:inline-flex;align-items:center;font-size:10px;color:var(--accent-purple);background:rgba(151,71,255,0.1);padding:2px 6px;border-radius:3px;border:1px solid rgba(151,71,255,0.2)}
+.panel__color{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.swatch{width:18px;height:18px;border-radius:3px;flex-shrink:0;border:1px solid var(--border-light)}
+.panel__link{display:flex;align-items:center;gap:7px;padding:5px 7px;border-radius:4px;cursor:pointer;transition:background 150ms;color:var(--text-secondary);font-size:11px;text-decoration:none}
+.panel__link:hover{background:var(--bg-item-hover);color:var(--text-primary)}
+.panel__link svg{width:12px;height:12px;flex-shrink:0}
+.panel__scroll{flex:1;overflow-y:auto}
+.panel__scroll::-webkit-scrollbar{width:4px}
+.panel__scroll::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:2px}
+
+/* ── PAGES BAR ────────────────────────────────────── */
+.pages-bar{
+  height:35px;min-height:35px;background:var(--bg-toolbar);
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;padding:0 10px;gap:2px;
+  z-index:100;overflow-x:auto;flex-shrink:0;
+}
+.pages-bar::-webkit-scrollbar{display:none}
+.page-tab{
+  display:flex;align-items:center;gap:5px;
+  padding:4px 10px;border-radius:4px;
+  font-size:11px;font-weight:500;color:var(--text-secondary);
+  cursor:pointer;transition:all 150ms;white-space:nowrap;position:relative;
+}
+.page-tab:hover{background:var(--bg-item-hover);color:var(--text-primary)}
+.page-tab.active{background:var(--bg-item);color:var(--text-primary)}
+.page-tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--accent);border-radius:1px 1px 0 0}
+.page-tab__dot{width:5px;height:5px;border-radius:50%;background:var(--text-muted);flex-shrink:0}
+.page-tab.active .page-tab__dot{background:var(--accent)}
+.pages-bar__right{margin-left:auto;font-size:11px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;white-space:nowrap;flex-shrink:0}
+
+/* ── PROJECT EXPAND ──────────────────────────────── */
+.expand-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px}
+.expand-overlay.open{display:flex}
+.expand-inner{
+  background:#fff;border-radius:10px;
+  max-width:620px;width:100%;max-height:82vh;overflow-y:auto;
+  box-shadow:0 32px 80px rgba(0,0,0,0.55);animation:pageIn 200ms ease both;
+}
+.expand-inner::-webkit-scrollbar{width:5px}
+.expand-inner::-webkit-scrollbar-thumb{background:#e0e0e0;border-radius:3px}
+.expand-head{padding:18px 22px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:start;gap:12px}
+.expand-close{font-size:17px;color:#aaa;cursor:pointer;width:26px;height:26px;display:grid;place-items:center;border-radius:4px;flex-shrink:0;transition:background 150ms}
+.expand-close:hover{background:#f0f0f0;color:#333}
+.expand-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px}
+.expand-link{font-size:11px;color:#18a0fb;display:inline-flex;align-items:center;gap:4px}
+.expand-link:hover{text-decoration:underline}
+.expand-body{padding:18px 22px}
+.expand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+@media(max-width:480px){.expand-grid{grid-template-columns:1fr}}
+.expand-col h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#aaa;margin-bottom:5px}
+.expand-col p{font-size:12px;color:#555;line-height:1.6}
+.expand-outcome{background:#e8f5e8;border-radius:6px;padding:10px 12px;font-size:12px;color:#1a7340;display:flex;align-items:flex-start;gap:7px}
+.expand-outcome::before{content:'✓';font-weight:700;flex-shrink:0}
+
+/* ── MOBILE DRAWER OVERLAY ───────────────────────── */
+.drawer-overlay{
+  display:none;position:fixed;inset:0;z-index:49;
+  background:rgba(0,0,0,0.4);
+}
+.drawer-overlay.open{display:block}
+@media(min-width:701px){.drawer-overlay{display:none!important}}
+
+/* ── LAYER HIGHLIGHT ANIMATION ───────────────────── */
+@keyframes frameFlash{0%,100%{outline-color:var(--accent);box-shadow:0 0 0 4px rgba(24,160,251,0.15),0 4px 32px rgba(0,0,0,0.35)}50%{outline-color:#9747ff;box-shadow:0 0 0 6px rgba(151,71,255,0.2),0 4px 32px rgba(0,0,0,0.35)}}
+.frame.flash{outline:2px solid var(--accent);outline-offset:3px;animation:frameFlash 600ms ease 2}
+
+/* ── NEW: HERO LINE / DETAIL GRID / FOOTER / TOAST ── */
+.hero-line{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:480px;margin-bottom:14px}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ebebeb;border:1px solid #ebebeb;border-radius:6px;overflow:hidden;margin:18px 0 4px}
+@media(max-width:540px){.detail-grid{grid-template-columns:repeat(2,1fr)}}
+.detail-cell{background:#fafafa;padding:10px 12px}
+.detail-cell .dk{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#aaa;margin-bottom:3px}
+.detail-cell .dv{font-size:12px;font-weight:500;color:#333}
+.sidebar__footer{display:none;border-top:1px solid var(--border);padding:10px 12px;flex-shrink:0}
+@media(max-width:900px){.sidebar__footer{display:block}}
+.sidebar__status{font-size:10px;color:var(--text-muted);margin-top:9px;display:flex;align-items:center;gap:5px}
+.toast{position:fixed;bottom:52px;left:50%;transform:translate(-50%,12px);background:#1e1e1e;color:#fff;border:1px solid #444;padding:9px 16px;border-radius:8px;font-size:12px;z-index:300;opacity:0;pointer-events:none;transition:opacity 250ms,transform 250ms;box-shadow:0 8px 30px rgba(0,0,0,0.4)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+body.outlines .frame{outline:1px dashed var(--accent);outline-offset:3px}
+body.outlines .frame__label{color:var(--accent)}
+
+/* ── KEYBOARD FOCUS (WCAG 2.4.7) ─────────────────── */
+.page-tab:focus-visible,.layer-section:focus-visible,.layer-item:focus-visible,
+.splash-box:focus-visible,.splash-chip:focus-visible,.pcard:focus-visible,
+.theme-toggle:focus-visible,.splash-toggle:focus-visible,.share-btn:focus-visible,
+.cv-btn-sm:focus-visible,.ccard:focus-visible,.panel__link:focus-visible,
+.expand-close:focus-visible,.sidebar__tab:focus-visible,.mobile-menu-btn:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <button class="splash-toggle" id="splashToggle" aria-label="Toggle light / dark theme"><div class="splash-toggle__knob"></div></button>
+
+  <!-- HJ Logo big -->
+  <div class="splash-logo">
+    <svg width="64" height="64" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="14" fill="#1a1a1a"/>
+      <text x="9" y="44" font-family="Inter,sans-serif" font-weight="800" font-size="34" letter-spacing="-1" fill="#18a0fb">H</text>
+      <text x="35" y="44" font-family="Inter,sans-serif" font-weight="800" font-size="34" letter-spacing="-1" fill="#f24e1e">J</text>
+    </svg>
+  </div>
+
+  <h1 class="splash-title">Every designer has a portfolio.<br>Himanshi's is a Figma file.</h1>
+  <p class="splash-sub">Himanshi Jain &nbsp;·&nbsp; UX Designer &nbsp;·&nbsp; Gurugram, India<br>3+ years &nbsp;·&nbsp; 18 case studies &nbsp;·&nbsp; 50,000+ users impacted</p>
+
+  <div class="splash-box" onclick="openPortfolio()">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--text-muted);flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <span>Open Portfolio.fig — layers, frames &amp; 18 case studies inside…</span>
+    <div class="splash-box__arrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--text-muted)"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </div>
+  </div>
+
+  <div class="splash-chips">
+    <button class="splash-chip" onclick="openPortfolio('projects')">🗂 View Projects</button>
+    <button class="splash-chip" onclick="openPortfolio('resume')">📄 Read Resume</button>
+    <button class="splash-chip" onclick="openPortfolio('about')">👤 About Himanshi</button>
+    <button class="splash-chip" onclick="openPortfolio('contact')">✉️ Get in Touch</button>
+  </div>
+
+  <p class="splash-footer">Designed &amp; built by Himanshi Jain &nbsp;·&nbsp; himanshijain.in</p>
+</div>
+
+<!-- MOBILE DRAWER OVERLAY -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeSidebar()"></div>
+
+<!-- APP -->
+<div class="app" id="app">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <!-- HJ Logo -->
+    <div class="hj-logo">
+      <svg width="22" height="22" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="10" fill="#1a1a1a"/>
+        <text x="7" y="46" font-family="Inter,sans-serif" font-weight="800" font-size="38" letter-spacing="-1" fill="#18a0fb">H</text>
+        <text x="35" y="46" font-family="Inter,sans-serif" font-weight="800" font-size="38" letter-spacing="-1" fill="#f24e1e">J</text>
+      </svg>
+    </div>
+
+    <!-- Mobile menu -->
+    <button class="mobile-menu-btn" id="menuBtn" onclick="toggleSidebar()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <div class="toolbar__sep"></div>
+
+    <div class="toolbar__filename">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      Portfolio.fig
+      <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+
+    <div class="toolbar__sep"></div>
+
+    <div class="toolbar__tools">
+      <button class="toolbar__tool active" id="toolMove" title="Move tool" onclick="setTool('move')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 6v11l-3.5-3.5L8 15l5 5 5-5-1.5-1.5L13 17V6h-1v-.5L8 8l1.5 1.5L13 6z"/></svg>
+      </button>
+      <button class="toolbar__tool" id="toolOutline" title="Toggle frame outlines" onclick="setTool('outline')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+      </button>
+    </div>
+
+    <div class="toolbar__badge" style="margin-left:8px">
+      <span style="color:var(--accent-green);font-size:8px">●</span> Open to work
+    </div>
+
+    <div class="toolbar__right">
+      <div class="theme-toggle" id="appToggle">
+        <div class="theme-toggle__knob"></div>
+      </div>
+      <a class="cv-btn-sm" href="https://himanshijain.in/assets/Himanshi_Jain_CV.pdf" download="Himanshi_Jain_CV.pdf">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
+        CV
+      </a>
+      <button class="share-btn" onclick="shareLink()">Share</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar__header">
+        <div class="sidebar__tabs">
+          <button class="sidebar__tab active">Layers</button>
+          <button class="sidebar__tab">Assets</button>
+        </div>
+      </div>
+      <div class="sidebar__body">
+
+        <div class="layer-group">
+          <div class="layer-group__title">Pages</div>
+          <div class="layer-section active" data-page="about" onclick="switchPage('about');closeSidebar()">
+            <span class="layer-section__arrow">›</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+            About
+          </div>
+          <div class="layer-section" data-page="projects" onclick="switchPage('projects');closeSidebar()">
+            <span class="layer-section__arrow">›</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            Projects
+          </div>
+          <div class="layer-section" data-page="resume" onclick="switchPage('resume');closeSidebar()">
+            <span class="layer-section__arrow">›</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            Resume
+          </div>
+          <div class="layer-section" data-page="contact" onclick="switchPage('contact');closeSidebar()">
+            <span class="layer-section__arrow">›</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg>
+            Contact
+          </div>
+        </div>
+
+        <div class="layer-group" style="margin-top:6px">
+          <div class="layer-group__title">Layers</div>
+
+          <div class="layer-item selected" onclick="selectLayer(this,'frame-hero','about')">
+            <div class="layer-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#18a0fb" stroke-width="1.5" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            </div>
+            <span class="layer-item__name">Welcome</span>
+          </div>
+          <div class="layer-item" onclick="selectLayer(this,'frame-stats','about')">
+            <div class="layer-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            </div>
+            <span class="layer-item__name">Stats Bar</span>
+          </div>
+          <div class="layer-item" onclick="selectLayer(this,'frame-bio','about')">
+            <div class="layer-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            </div>
+            <span class="layer-item__name">About — Detailed</span>
+          </div>
+          <div class="layer-item" onclick="selectLayer(this,'frame-projects','projects')">
+            <div class="layer-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            </div>
+            <span class="layer-item__name">Projects Grid</span>
+          </div>
+          <div class="layer-item" onclick="selectLayer(this,'frame-projects','projects');setTimeout(function(){openProject('dn')},300)">
+            <div class="layer-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <span class="layer-item__name">Dancing Numbers</span>
+          </div>
+          <div class="layer-item" onclick="selectLayer(this,'frame-projects','projects');setTimeout(function(){openProject('sleepsia')},300)">
+            <div class="layer-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <span class="layer-item__name">Sleepsia</span>
+          </div>
+          <div class="layer-item" onclick="selectLayer(this,'frame-skills','resume')">
+            <div class="layer-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="layer-item__name">Skills — Components</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sidebar__footer">
+        <a class="panel__link" href="https://hjcasestudy.netlify.app/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Deep Portfolio</a>
+        <a class="panel__link" href="https://www.linkedin.com/in/himanshi-jain-a589691b5/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>LinkedIn</a>
+        <a class="panel__link" href="https://www.behance.net/himanshiiijain" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Behance</a>
+        <a class="cv-btn-sm" href="https://himanshijain.in/assets/Himanshi_Jain_CV.pdf" download="Himanshi_Jain_CV.pdf" style="width:100%;justify-content:center;margin-top:6px">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
+          Download CV (.pdf)
+        </a>
+        <div class="sidebar__status"><span style="color:var(--accent-green)">●</span> Available · UX Designer · Gurugram · 3+ yrs</div>
+      </div>
+    </div>
+
+    <!-- CANVAS -->
+    <div class="canvas-wrap">
+      <div class="canvas-label">100% · Portfolio.fig</div>
+      <div class="canvas" id="canvas">
+
+        <!-- ABOUT -->
+        <div class="canvas-page active" id="page-about">
+          <div style="position:relative;margin-top:24px">
+            <div class="frame__label">⬚ Welcome</div>
+            <div class="frame" id="frame-hero">
+              <div class="about-hero">
+                <div>
+                  <div class="tag-pill">Open to work · Available now</div>
+                  <div class="hero-name">Himanshi<br>Jain</div>
+                  <div class="hero-role">UX Designer · Gurugram, India</div>
+                  <p class="hero-line">I design SaaS and data-heavy products — the kind people open to get a job done, not to be entertained. My work ships to 50,000+ users every day.</p>
+                  <div class="hero-quote">"Good design shouldn't shout — it should whisper. The best interfaces are the ones you stop noticing, because they get out of your way."</div>
+                </div>
+                <div class="about-hero__avatar">
+                  <div class="hero-avatar-box">🎨</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:relative">
+            <div class="frame__label">⬚ Stats Bar</div>
+            <div class="frame" id="frame-stats">
+              <div class="stats-row">
+                <div class="stat-cell">
+                  <div class="stat-value" style="color:#18a0fb">3+</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-value" style="color:#9747ff">18</div>
+                  <div class="stat-label">Case Studies</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-value" style="color:#1bc47d">50k+</div>
+                  <div class="stat-label">Users Impacted</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-value" style="color:#f24822">5</div>
+                  <div class="stat-label">Live Products</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:relative">
+            <div class="frame__label">⬚ About — In detail</div>
+            <div class="frame" id="frame-bio">
+              <div class="about-bio">
+                <h3>Who I am</h3>
+                <p>I'm a UX designer with 3+ years of experience building scalable, data-driven products. I came into design through code — I spent five months as a backend developer before realising the part I loved was the seam between the system and the human using it. That dual lens shows up in my work: I think in components, but I design for the messy edges where real people live.</p>
+                <p>Today I lead end-to-end design at Dancing Numbers — research, IA, flows, hi-fi, design QA, and the design system that holds it all together — on a QuickBooks automation SaaS trusted by 50,000+ accountants across the USA and Canada.</p>
+                <h3 style="margin-top:20px">What I do</h3>
+                <p>I design for SaaS and data-heavy interfaces — products where users come to get a job done. That means tight workflows, sensible defaults, and screens that respect your attention. I work closely with PMs and engineers, prototype to make trade-offs visible early, and obsess about empty states.</p>
+                <p><strong>Recent wins:</strong> reduced onboarding drop-offs 25% through flow optimisation · lifted daily active users 15% with a dashboard redesign · cut design hand-off friction 20% by rebuilding the team's component library.</p>
+                <h3 style="margin-top:20px">Off the clock</h3>
+                <p>You'll find me hunting for coffee shops that get the foam right, re-organising my Figma libraries for the third time this week, or on a slow train somewhere in the hills. I keep a running list of tiny UX details I love — receipts, transit cards, museum signage — and study them like other people study films.</p>
+                <div class="detail-grid">
+                  <div class="detail-cell"><div class="dk">Location</div><div class="dv">Gurugram, India</div></div>
+                  <div class="detail-cell"><div class="dk">Experience</div><div class="dv">3+ years · since Sept 2022</div></div>
+                  <div class="detail-cell"><div class="dk">Available for</div><div class="dv">Full-time · Freelance</div></div>
+                  <div class="detail-cell"><div class="dk">Specialisation</div><div class="dv">SaaS · Data UX</div></div>
+                  <div class="detail-cell"><div class="dk">Education</div><div class="dv">MCA · CGPA 9.4/10</div></div>
+                  <div class="detail-cell"><div class="dk">Certification</div><div class="dv">Google UX Design · 2024</div></div>
+                </div>
+                <div class="bio-tags">
+                  <span class="bio-tag">Figma</span><span class="bio-tag">Adobe XD</span><span class="bio-tag">SaaS UX</span><span class="bio-tag">Design Systems</span><span class="bio-tag">User Research</span><span class="bio-tag">Prototyping</span><span class="bio-tag">WCAG 2.2</span><span class="bio-tag">Usability Testing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="canvas-page" id="page-projects">
+          <div style="position:relative;margin-top:24px">
+            <div class="frame__label">⬚ Projects / Case Studies · 18 total</div>
+            <div class="frame" id="frame-projects">
+              <div class="projects-grid">
+                <div class="pcard featured" onclick="openProject('deepportfolio')">
+                  <div>
+                    <div class="pcard__num">PINNED · 00</div>
+                    <div class="pcard__title">Deep Portfolio — 5 Documented Case Studies</div>
+                    <div class="pcard__desc">Brand-accurate documentation across Design Systems, UX Research, Accessibility & Motion Design</div>
+                    <div class="pcard__tags"><span class="pcard__tag">Design System</span><span class="pcard__tag">Research</span><span class="pcard__tag">WCAG</span></div>
+                    <a href="https://hjcasestudy.netlify.app/" target="_blank" onclick="event.stopPropagation()" class="pcard__link">↗ hjcasestudy.netlify.app</a>
+                  </div>
+                  <div class="featured-badge">5 Deep Case Studies</div>
+                </div>
+                <div class="pcard" onclick="openProject('agile')"><div class="pcard__num">01</div><div class="pcard__title">Agile Ventures — Website Redesign</div><div class="pcard__desc">Corporate redesign for Gurugram-based business group.</div><div class="pcard__tags"><span class="pcard__tag">Web</span><span class="pcard__tag">B2B</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('dn')"><div class="pcard__num">02</div><div class="pcard__title">Dancing Numbers — SaaS Redesign</div><div class="pcard__desc">QuickBooks automation for 50,000+ accountants.</div><div class="pcard__tags"><span class="pcard__tag">SaaS</span><span class="pcard__tag">Conversion</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('sleepsia')"><div class="pcard__num">03</div><div class="pcard__title">Sleepsia — D2C E-commerce</div><div class="pcard__desc">Shopify storefront redesign. Mobile-first UX.</div><div class="pcard__tags"><span class="pcard__tag">E-commerce</span><span class="pcard__tag">Shopify</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('lounge')"><div class="pcard__num">04</div><div class="pcard__title">Sleepsia Lounge — Nightwear D2C</div><div class="pcard__desc">Lifestyle-first UX for premium women's brand.</div><div class="pcard__tags"><span class="pcard__tag">Fashion</span><span class="pcard__tag">Mobile</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('gopt')"><div class="pcard__num">05</div><div class="pcard__title">GOPT — Healthcare Pain App</div><div class="pcard__desc">3D anatomy pain mapping for async consultations.</div><div class="pcard__tags"><span class="pcard__tag">Healthcare</span><span class="pcard__tag">Web App</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('qe')"><div class="pcard__num">06</div><div class="pcard__title">Quality Engineering CA</div><div class="pcard__desc">B2B consulting — credibility-first design.</div><div class="pcard__tags"><span class="pcard__tag">B2B</span><span class="pcard__tag">WordPress</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('accountspro')"><div class="pcard__num">07</div><div class="pcard__title">AccountsPro — Bookkeeping Services</div><div class="pcard__desc">NY-based QuickBooks &amp; Sage support. Conversion-led.</div><div class="pcard__tags"><span class="pcard__tag">B2B</span><span class="pcard__tag">Lead Gen</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('a1')"><div class="pcard__num">08</div><div class="pcard__title">A1 — Medicine E-commerce App</div><div class="pcard__desc">Wireframe to hi-fi. Trust-first health purchases.</div><div class="pcard__tags"><span class="pcard__tag">Healthcare</span><span class="pcard__tag">Mobile</span></div></div>
+                <div class="pcard" onclick="openProject('wallet')"><div class="pcard__num">09</div><div class="pcard__title">Wallet Z — Fintech App</div><div class="pcard__desc">Lightweight mobile wallet UI concept.</div><div class="pcard__tags"><span class="pcard__tag">Fintech</span><span class="pcard__tag">Mobile</span></div></div>
+                <div class="pcard" onclick="openProject('pawly')"><div class="pcard__num">10</div><div class="pcard__title">Pawly — Pet Care App</div><div class="pcard__desc">Warm, functional pet care companion.</div><div class="pcard__tags"><span class="pcard__tag">Pet Tech</span><span class="pcard__tag">Mobile</span></div></div>
+                <div class="pcard" onclick="openProject('rajasthan')"><div class="pcard__num">11</div><div class="pcard__title">Rajasthan Tourism — UI Concept</div><div class="pcard__desc">Rich cultural UX for iconic destination.</div><div class="pcard__tags"><span class="pcard__tag">Tourism</span><span class="pcard__tag">Concept</span></div></div>
+                <div class="pcard" onclick="openProject('dreamteam')"><div class="pcard__num">12</div><div class="pcard__title">DreamTeam — Real Estate UI</div><div class="pcard__desc">Property discovery + agent matching platform.</div><div class="pcard__tags"><span class="pcard__tag">Real Estate</span><span class="pcard__tag">Mobile</span></div></div>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">13</div><div class="pcard__title">Social Media Dashboard</div><div class="pcard__desc">Analytics dashboard UI concept.</div><div class="pcard__tags"><span class="pcard__tag">Dashboard</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">14</div><div class="pcard__title">UI/UX Roadmap</div><div class="pcard__desc">Visual learning roadmap for designers.</div><div class="pcard__tags"><span class="pcard__tag">Infographic</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">15</div><div class="pcard__title">Restaurant — Web UI Concept</div><div class="pcard__desc">Appetite-first restaurant experience.</div><div class="pcard__tags"><span class="pcard__tag">Food</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">16</div><div class="pcard__title">Engagement Invitation</div><div class="pcard__desc">Digital invitation design concept.</div><div class="pcard__tags"><span class="pcard__tag">Visual</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">17</div><div class="pcard__title">Cancer Blog — Web Concept</div><div class="pcard__desc">Empathetic health content platform.</div><div class="pcard__tags"><span class="pcard__tag">Health</span><span class="pcard__tag">Behance ↗</span></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESUME -->
+        <div class="canvas-page" id="page-resume">
+          <div style="position:relative;margin-top:24px">
+            <div class="frame__label">⬚ Resume / Experience</div>
+            <div class="frame" id="frame-resume">
+              <div class="resume-frame">
+                <div class="resume-section">
+                  <div class="resume-section__title">Experience</div>
+                  <div class="resume-entry">
+                    <div class="resume-dot" style="background:#18a0fb"></div>
+                    <div>
+                      <div class="resume-title">UI/UX Designer</div>
+                      <div class="resume-co">Dancing Numbers Pvt. Ltd.</div>
+                      <div class="resume-meta">Mar 2024 — Present · Gurugram</div>
+                      <div class="resume-desc">Lead UX on QuickBooks automation SaaS trusted by 50,000+ accountants across USA and Canada. Own full design process — research to QA. Rebuilt company website; established Figma component library.</div>
+                    </div>
+                  </div>
+                  <div class="resume-entry">
+                    <div class="resume-dot" style="background:#9747ff"></div>
+                    <div>
+                      <div class="resume-title">UI/UX Designer</div>
+                      <div class="resume-co">iRasus Technologies Pvt. Ltd.</div>
+                      <div class="resume-meta">Sept 2022 — Mar 2024 · Gurugram</div>
+                      <div class="resume-desc">Joined as Backend Developer → transitioned to UX after 5 months. Led design for 10+ B2B/B2C products. Built scalable UI component libraries across multiple products.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="resume-section">
+                  <div class="resume-section__title">Education</div>
+                  <div class="resume-entry">
+                    <div class="resume-dot" style="background:#1bc47d"></div>
+                    <div><div class="resume-title">MCA · Master of Computer Applications</div><div class="resume-co">SS Jain Subodh PG College</div><div class="resume-meta">2022 — 2024 · CGPA 9.4/10</div></div>
+                  </div>
+                  <div class="resume-entry">
+                    <div class="resume-dot"></div>
+                    <div><div class="resume-title">BCA · Bachelor of Computer Applications</div><div class="resume-co">SS Jain Subodh PG College</div><div class="resume-meta">2019 — 2022 · CGPA 8.6/10</div></div>
+                  </div>
+                  <div class="resume-entry">
+                    <div class="resume-dot" style="background:#f24822"></div>
+                    <div><div class="resume-title">Google UX Design Professional Certificate</div><div class="resume-co">Coursera · Google</div><div class="resume-meta">Dec 2024</div></div>
+                  </div>
+                </div>
+                <div class="resume-section" id="frame-skills">
+                  <div class="resume-section__title">Skills & Tools</div>
+                  <div style="margin-bottom:10px"><div style="font-size:10px;color:#aaa;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em">Design Tools</div><div class="skills-row"><span class="chip b">Figma</span><span class="chip b">Adobe XD</span><span class="chip b">Adobe Creative Suite</span><span class="chip b">Framer</span></div></div>
+                  <div style="margin-bottom:10px"><div style="font-size:10px;color:#aaa;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em">Disciplines</div><div class="skills-row"><span class="chip g">User Research</span><span class="chip g">Usability Testing</span><span class="chip g">Design Systems</span><span class="chip g">SaaS UX</span><span class="chip g">Accessibility</span><span class="chip g">Prototyping</span></div></div>
+                  <div><div style="font-size:10px;color:#aaa;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em">AI Tools</div><div class="skills-row"><span class="chip p">ChatGPT</span><span class="chip p">Claude AI</span><span class="chip p">Gemini</span><span class="chip p">Freepik AI</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="canvas-page" id="page-contact">
+          <div style="position:relative;margin-top:24px">
+            <div class="frame__label">⬚ Contact / Let's work together</div>
+            <div class="frame" id="frame-contact">
+              <div class="contact-frame">
+                <h2>Let's work together.</h2>
+                <p>Full-time roles · Freelance projects · Gurugram, India (IST, GMT+5:30) · Usually replies within 24 hours on weekdays</p>
+                <div class="contact-grid">
+                  <a class="ccard" href="mailto:himanshijain053@gmail.com"><div class="ccard__icon" style="background:rgba(24,160,251,0.15)">📧</div><div><div class="ccard__label">Email</div><div class="ccard__value">himanshijain053@gmail.com</div></div></a>
+                  <a class="ccard" href="https://wa.me/917014744297" target="_blank"><div class="ccard__icon" style="background:rgba(27,196,125,0.15)">💬</div><div><div class="ccard__label">WhatsApp</div><div class="ccard__value">+91 70147 44297</div></div></a>
+                  <a class="ccard" href="https://www.linkedin.com/in/himanshi-jain-a589691b5/" target="_blank"><div class="ccard__icon" style="background:rgba(10,102,194,0.2);font-size:12px;font-weight:700;color:#fff">in</div><div><div class="ccard__label">LinkedIn</div><div class="ccard__value">Himanshi Jain</div></div></a>
+                  <a class="ccard" href="https://www.behance.net/himanshiiijain" target="_blank"><div class="ccard__icon" style="background:rgba(24,160,251,0.1);font-size:11px;font-weight:700;color:#18a0fb">Bē</div><div><div class="ccard__label">Behance</div><div class="ccard__value">behance.net/himanshiiijain</div></div></a>
+                  <a class="ccard" href="https://www.instagram.com/thehimanshi.jain/" target="_blank"><div class="ccard__icon" style="background:rgba(225,48,108,0.15)">📸</div><div><div class="ccard__label">Instagram</div><div class="ccard__value">@thehimanshi.jain</div></div></a>
+                  <a class="ccard" href="https://hjcasestudy.netlify.app/" target="_blank"><div class="ccard__icon" style="background:rgba(151,71,255,0.15)">📐</div><div><div class="ccard__label">Deep Case Studies</div><div class="ccard__value">hjcasestudy.netlify.app</div></div></a>
+                </div>
+                <div class="avail-bar">
+                  <div class="avail-dot"></div>
+                  <p>Currently available for <strong>full-time roles</strong> and <strong>freelance projects</strong> · Based in Gurugram, India</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="panel">
+      <div class="panel__scroll">
+        <div class="panel__section">
+          <div class="panel__title">Design</div>
+          <div class="panel__row"><span class="panel__label">W</span><span class="pval">860</span><span class="panel__label" style="margin-left:8px">H</span><span class="pval">Auto</span></div>
+          <div class="panel__row"><span class="panel__label">X</span><span class="pval">0</span><span class="panel__label" style="margin-left:8px">Y</span><span class="pval">0</span></div>
+          <div class="panel__row"><span class="panel__label">Radius</span><span class="pval">2</span></div>
+        </div>
+        <div class="panel__section">
+          <div class="panel__title">Variables</div>
+          <div class="panel__row"><span class="panel__label">Role</span><span class="var-badge">UX Designer</span></div>
+          <div class="panel__row"><span class="panel__label">Location</span><span class="pval a">Gurugram</span></div>
+          <div class="panel__row"><span class="panel__label">Status</span><span class="pval g">Available</span></div>
+          <div class="panel__row"><span class="panel__label">Exp</span><span class="pval p">3+ yrs</span></div>
+        </div>
+        <div class="panel__section">
+          <div class="panel__title">Fill</div>
+          <div class="panel__color"><div class="swatch" style="background:#18a0fb"></div><span style="font-size:11px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace">18A0FB · 100%</span></div>
+          <div class="panel__color"><div class="swatch" style="background:#9747ff"></div><span style="font-size:11px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace">9747FF · 100%</span></div>
+          <div class="panel__color"><div class="swatch" style="background:#1bc47d"></div><span style="font-size:11px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace">1BC47D · 100%</span></div>
+        </div>
+        <div class="panel__section">
+          <div class="panel__title">Links</div>
+          <a class="panel__link" href="https://hjcasestudy.netlify.app/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Deep Portfolio</a>
+          <a class="panel__link" href="https://www.linkedin.com/in/himanshi-jain-a589691b5/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>LinkedIn</a>
+          <a class="panel__link" href="https://www.behance.net/himanshiiijain" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Behance</a>
+        </div>
+        <div class="panel__section">
+          <div class="panel__title">Export</div>
+          <a class="cv-btn-sm" href="https://himanshijain.in/assets/Himanshi_Jain_CV.pdf" download="Himanshi_Jain_CV.pdf" style="width:100%;justify-content:center;border-radius:6px;padding:7px;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
+            Download CV (.pdf)
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PAGES BAR -->
+  <div class="pages-bar">
+    <div class="page-tab active" data-page="about"><span class="page-tab__dot"></span>About</div>
+    <div class="page-tab" data-page="projects"><span class="page-tab__dot"></span>Projects</div>
+    <div class="page-tab" data-page="resume"><span class="page-tab__dot"></span>Resume</div>
+    <div class="page-tab" data-page="contact"><span class="page-tab__dot"></span>Contact</div>
+    <div class="pages-bar__right">100% · Portfolio.fig</div>
+  </div>
+
+</div><!-- /app -->
+
+<!-- PROJECT EXPAND -->
+<div class="expand-overlay" id="expandOverlay">
+  <div class="expand-inner" id="expandInner"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status">Link copied to clipboard</div>
+
+<script>
+// ── Project data ──────────────────────────────────
+var PD = {
+  deepportfolio:{title:'Deep Portfolio — 5 Documented Case Studies',link:'https://hjcasestudy.netlify.app/',linkLabel:'hjcasestudy.netlify.app',role:'UX Designer + Researcher',problem:'Most portfolios show finished screens. This shows the thinking — brand audit before the first frame, research that changed direction, tokens that made the system scalable.',process:'5 deep-dive case studies each with real brand tokens, design problem, research findings, before/after decisions, and measured outcomes. No filler.',outcome:'20% reduction in handoff friction · 5/5 task completion (Sleepsia) · 7 WCAG failures fixed · 25% drop-off reduction · 68% fewer rage-clicks'},
+  agile:{title:'Agile Ventures — Website Redesign',link:'https://agileventures.net/',linkLabel:'agileventures.net',role:'End-to-end UX/UI',problem:"Existing site didn't reflect scale or credibility. Navigation unclear, visual language outdated.",process:'Audited 5 competitor sites, ran stakeholder interviews, restructured IA, designed clean Figma prototype.',outcome:'Navigation reduced from 4+ clicks to 2 for any key page. Consistent brand identity across all verticals.'},
+  dn:{title:'Dancing Numbers — SaaS Website Redesign',link:'https://www.dancingnumbers.com/',linkLabel:'dancingnumbers.com',role:'UI/UX Designer — in-house',problem:'Deep nested navigation. Free trial CTA buried. First-time visitors couldn\'t understand the product.',process:'Heuristic eval, audience segmentation, rebuilt homepage story around core value — what it does → who it\'s for → why it works.',outcome:'50,000+ users · Navigation from 5 menus to 3 clear sections · Free trial CTA elevated throughout.'},
+  sleepsia:{title:'Sleepsia — D2C E-commerce Redesign',link:'https://www.sleepsia.in/',linkLabel:'sleepsia.in',role:'UI/UX Designer — mobile-first',problem:'Cluttered homepage, 7+ top-level nav categories, trust signals buried below fold on mobile.',process:'Navigation rebuilt around health concerns not product types. Homepage leads with pain-relief promise and social proof.',outcome:'Nav from 7 items to 3 entry points. Trust signals — reviews, certifications — within first screen on mobile.'},
+  lounge:{title:"Sleepsia Lounge — Women's Nightwear D2C",link:'https://sleepsialounge.com/',linkLabel:'sleepsialounge.com',role:'UI/UX Designer + Brand Direction',problem:'New sub-brand needed different emotional register from parent — soft, aspirational, lifestyle-led.',process:'Mood and brand positioning first. Studied Clovia, Zivame, Libas. Designed around lifestyle imagery.',outcome:"Launched on Blinkit, Flipkart, Amazon, Myntra, Meesho. Reviews say brand feels 'so well made' and 'a vibe'."},
+  gopt:{title:'GOPT World — Healthcare Pain App',link:'https://gopt.d-crm.in/',linkLabel:'gopt.d-crm.in',role:'UI/UX Designer',problem:'Describing pain with text is imprecise. Needed interface for all digital literacy levels.',process:'Designed around 3D anatomy model as primary input — tap to select, slider for severity. Minimal form fields.',outcome:'Clean async consultation flow. Richer, more precise patient data. Validated with Figma prototype.'},
+  qe:{title:'Quality Engineering CA — B2B Consulting',link:'https://quality-engineering.ca/',linkLabel:'quality-engineering.ca',role:'UI/UX Designer — WordPress handoff',problem:'Needed to convey technical credibility to manufacturing procurement heads while remaining approachable.',process:'B2B buyer journey mapped. Homepage around trust signals — Ford/Magna/Samsung logos, credentials, direct CTA.',outcome:'Credibility-first website. PPAP, APQP, PFMEA expertise surfaces immediately.'},
+  wallet:{title:'Wallet Z — Fintech Mobile App UI',link:'https://www.behance.net/gallery/202619141/Wallet-Z',linkLabel:'Behance',role:'UI/UX Designer',problem:"Wallet apps feel like scaled-down banking — dense, anxiety-inducing.",process:'3 daily jobs: send, receive, check balance. Premium dark UI, everything in 2 taps or fewer.',outcome:'Polished fintech concept. Published on Behance.'},
+  pawly:{title:'Pawly — Pet Care Mobile App',link:'https://www.behance.net/gallery/209771525/Pawly-Pet-App',linkLabel:'Behance',role:'UI/UX Designer',problem:'Pet apps too clinical or too social. Needed to sit between both.',process:'4 core jobs: care reminders, health records, community, shop. Warm palette without losing clarity.',outcome:'Delightful concept showing utility and warmth can coexist. Published on Behance.'},
+  rajasthan:{title:'Rajasthan Tourism — UI Concept',link:'https://www.behance.net/gallery/199678435/Rajasthan-Tourism-UIUX',linkLabel:'Behance',role:'UI/UX Designer',problem:'Government tourism sites: mismatch between richness of destination and flatness of digital experience.',process:'Terracotta, gold, indigo palette. Tourist journey from discovery → itinerary → booking.',outcome:'Visually cohesive cultural concept. Published on Behance.'},
+  accountspro:{title:'AccountsPro — Accounting & Bookkeeping Website',link:'https://www.accountspro.co',linkLabel:'accountspro.co',role:'UI/UX Designer — IA, wireframes, visual design, WordPress handoff',problem:'Services listed without hierarchy. Small business owners couldn\'t quickly tell if AccountsPro solved their specific problem — QuickBooks error, payroll, or migration.',process:'Restructured IA around service categories (QuickBooks, Sage, Error Resolution, Migration) with problem-first language. Homepage leads with value promise and 24/7 support.',outcome:'Conversion-focused website with strong service hierarchy. Error resolution pages designed to rank and convert. 24/7 support promise visible throughout.'},
+  a1:{title:'A1 — Medicine E-commerce Mobile App',link:'https://www.behance.net/gallery/218903175/A1-Wireframe',linkLabel:'Behance',role:'UI/UX Designer — wireframes to hi-fi, Figma prototype',problem:'Medicine e-commerce needs more trust and clarity than typical retail — right product, legitimate source, simple repeat purchase.',process:'Low-fi wireframes for browse, search, PDP, referral, checkout. Iterated to hi-fi with a clean medical-adjacent visual language. One-tap referral flow.',outcome:'Complete wireframe-to-hi-fi case study showing full mobile UX process. Published on Behance.'},
+  dreamteam:{title:'DreamTeam — Real Estate UI',link:'https://www.behance.net/gallery/211644127/DreamTeam-Real-Estate-UI',linkLabel:'Behance',role:'UI/UX Designer',problem:'Real estate apps overwhelm users with listings before they\'ve defined what they want.',process:'Preference quiz surfaces fewer, better-matched listings. PDPs lead with price, commute, neighbourhood feel. Agent profiles built for trust — reviews, specialisation, response time upfront.',outcome:'Human-centred property discovery concept. Published on Behance.'},
+};
+
+// ── Open/close project expand ──────────────────────
+function openProject(id) {
+  var p = PD[id]; if (!p) return;
+  document.getElementById('expandInner').innerHTML =
+    '<div class="expand-head"><div>' +
+    '<div class="expand-title">'+p.title+'</div>' +
+    '<a href="'+p.link+'" target="_blank" class="expand-link">↗ '+p.linkLabel+'</a></div>' +
+    '<button class="expand-close" onclick="closeProject()">✕</button></div>' +
+    '<div class="expand-body">' +
+    '<div class="expand-grid">' +
+    '<div class="expand-col"><h4>Role</h4><p>'+p.role+'</p></div>' +
+    '<div class="expand-col"><h4>Problem</h4><p>'+p.problem+'</p></div>' +
+    '<div class="expand-col"><h4>Process</h4><p>'+p.process+'</p></div>' +
+    '</div><div class="expand-outcome">'+p.outcome+'</div></div>';
+  document.getElementById('expandOverlay').classList.add('open');
+}
+function closeProject() { document.getElementById('expandOverlay').classList.remove('open'); }
+document.getElementById('expandOverlay').addEventListener('click', function(e){ if(e.target===this) closeProject(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeProject(); });
+
+// ── Page switching ─────────────────────────────────
+var currentPage = 'about';
+function switchPage(page) {
+  document.querySelectorAll('.canvas-page').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.page-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.layer-section').forEach(function(s){ s.classList.remove('active'); });
+  var cp = document.getElementById('page-'+page); if (cp) cp.classList.add('active');
+  document.querySelectorAll('.page-tab[data-page="'+page+'"]').forEach(function(t){ t.classList.add('active'); });
+  document.querySelectorAll('.layer-section[data-page="'+page+'"]').forEach(function(s){ s.classList.add('active'); });
+  // scroll canvas to top
+  document.getElementById('canvas').scrollTop = 0;
+  currentPage = page;
+}
+document.querySelectorAll('.page-tab[data-page]').forEach(function(t){
+  t.addEventListener('click', function(){ switchPage(t.dataset.page); });
+});
+
+// ── Layer item click → highlight frame ─────────────
+function selectLayer(el, frameId, page) {
+  // Update layer selection
+  document.querySelectorAll('.layer-item').forEach(function(i){ i.classList.remove('selected'); });
+  el.classList.add('selected');
+  // Switch page if needed
+  if (page !== currentPage) switchPage(page);
+  // Highlight + scroll to frame
+  setTimeout(function() {
+    var frame = document.getElementById(frameId);
+    if (!frame) return;
+    // Remove any existing highlights
+    document.querySelectorAll('.frame').forEach(function(f){ f.classList.remove('highlighted','flash'); });
+    // Scroll frame into view
+    frame.scrollIntoView({ behavior:'smooth', block:'center' });
+    // Flash animation
+    setTimeout(function() {
+      frame.classList.add('flash');
+      setTimeout(function(){ frame.classList.remove('flash'); }, 1400);
+    }, 400);
+  }, page !== currentPage ? 280 : 0);
+}
+
+// ── Mobile sidebar ─────────────────────────────────
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('drawerOverlay').classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+}
+
+// ── Theme toggle (both splash + app) ──────────────
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  // sync splash toggle knob position via CSS variables
+}
+// Splash toggle
+var splashToggle = document.getElementById('splashToggle');
+// We re-use the CSS-driven toggle — clicking it just flips the attribute
+document.getElementById('splashToggle').addEventListener('click', function(){
+  var t = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(t === 'dark' ? 'light' : 'dark');
+});
+document.getElementById('appToggle').addEventListener('click', function(){
+  var t = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(t === 'dark' ? 'light' : 'dark');
+});
+
+// ── Toolbar tools ───────────────────────────────────
+function setTool(t) {
+  var mv = document.getElementById('toolMove'), fr = document.getElementById('toolOutline');
+  if (t === 'outline') {
+    var on = document.body.classList.toggle('outlines');
+    fr.classList.toggle('active', on);
+    mv.classList.toggle('active', !on);
+  } else {
+    document.body.classList.remove('outlines');
+    fr.classList.remove('active');
+    mv.classList.add('active');
+  }
+}
+
+// ── Share → copy link + toast ──────────────────────
+function shareLink() {
+  var url = location.href.split('#')[0];
+  function showToast() {
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    clearTimeout(window.__toastT);
+    window.__toastT = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  }
+  function fallbackCopy() {
+    var ta = document.createElement('textarea');
+    ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); showToast(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(showToast).catch(fallbackCopy);
+  } else { fallbackCopy(); }
+}
+
+// ── Keyboard accessibility (WCAG 2.1.1) ────────────
+document.querySelectorAll('.page-tab,.layer-section,.layer-item,.splash-box,.pcard[onclick],.theme-toggle').forEach(function(el){
+  el.setAttribute('tabindex','0');
+  if (!el.getAttribute('role')) el.setAttribute('role','button');
+  el.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+  });
+});
+document.getElementById('appToggle').setAttribute('aria-label','Toggle light / dark theme');
+document.getElementById('menuBtn').setAttribute('aria-label','Open navigation');
+
+// ── Splash → Portfolio ─────────────────────────────
+function openPortfolio(page) {
+  var splash = document.getElementById('splash');
+  var app    = document.getElementById('app');
+  splash.style.opacity = '0';
+  splash.style.transform = 'scale(1.04)';
+  setTimeout(function() {
+    splash.style.display = 'none';
+    app.classList.add('visible');
+    if (page) switchPage(page);
+  }, 460);
+}
+document.addEventListener('keydown', function(e){
+  if (e.key==='Enter' && document.getElementById('splash').style.display !== 'none') openPortfolio();
+});
+</script>
+</body>
+</html>
