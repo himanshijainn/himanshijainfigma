@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="Himanshi Jain — Portfolio.fig"/>
 <meta name="twitter:description" content="3+ years designing scalable SaaS and D2C products. 18 case studies — explore them inside a Figma-style interface."/>
 <meta name="twitter:image" content="https://himanshiijain.netlify.app/og-image.png"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1a1a'/%3E%3Ctext x='9' y='44' font-family='Arial,sans-serif' font-weight='800' font-size='34' fill='%2318a0fb'%3EH%3C/text%3E%3Ctext x='35' y='44' font-family='Arial,sans-serif' font-weight='800' font-size='34' fill='%23f24e1e'%3EJ%3C/text%3E%3C/svg%3E"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='28' fill='%23fff'/%3E%3Crect x='32' y='37' width='14' height='48' rx='7' fill='%233d5afe'/%3E%3Crect x='54' y='37' width='14' height='48' rx='7' fill='%239747ff'/%3E%3Crect x='34' y='54' width='34' height='13' rx='6.5' fill='%231abcfe'/%3E%3Crect x='34' y='54' width='12' height='13' fill='%230642fd'/%3E%3Crect x='56' y='54' width='12' height='13' fill='%230f34fe'/%3E%3Cpath d='M 86 43 L 86 72 Q 86 83 75 83' fill='none' stroke='%23f24e1e' stroke-width='14' stroke-linecap='round'/%3E%3Ccircle cx='74' cy='80' r='9' fill='%230acf83'/%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
 <style>
@@ -132,11 +132,12 @@ a{color:inherit;text-decoration:none}
 }
 /* HJ logo */
 .hj-logo{
-  width:30px;height:30px;border-radius:7px;
+  width:30px;height:30px;border-radius:8px;
   display:grid;place-items:center;flex-shrink:0;
-  background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
-  border:1px solid #444;overflow:hidden;
+  background:none;border:none;overflow:visible;padding:0;
+  transition:transform 150ms;
 }
+.hj-logo:hover{transform:scale(1.08)}
 .hj-logo svg{width:22px;height:22px}
 .toolbar__filename{
   font-size:12px;font-weight:500;color:var(--text-primary);
@@ -158,7 +159,7 @@ a{color:inherit;text-decoration:none}
 .toolbar__badge{
   font-size:11px;font-weight:500;color:var(--text-secondary);
   background:var(--bg-item);padding:3px 8px;border-radius:4px;
-  display:flex;align-items:center;gap:5px;
+  display:flex;align-items:center;gap:5px;white-space:nowrap;flex-shrink:0;
 }
 .toolbar__right{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}
 .share-btn{background:var(--accent);color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:500}
@@ -192,6 +193,21 @@ a{color:inherit;text-decoration:none}
   transition:all 150ms;
 }
 @media(max-width:700px){.mobile-menu-btn{display:grid}}
+
+/* ── TOOLBAR RESPONSIVE ──────────────────────────── */
+@media(max-width:760px){
+  .toolbar__tools{display:none}
+  .toolbar__badge{display:none}
+}
+@media(max-width:560px){
+  .toolbar__filename{display:none}
+  .toolbar .toolbar__sep{display:none}
+}
+@media(max-width:430px){
+  .cv-btn-sm .cv-label{display:none}
+  .cv-btn-sm{padding:5px 8px}
+  .toolbar{gap:6px;padding:0 8px}
+}
 
 /* ── MAIN ─────────────────────────────────────────── */
 .main{flex:1;display:flex;overflow:hidden;min-height:0;position:relative}
@@ -300,11 +316,12 @@ a{color:inherit;text-decoration:none}
 .about-hero__avatar{display:grid;place-items:center}
 @media(max-width:500px){.about-hero__avatar{display:none}}
 .hero-avatar-box{
-  width:120px;height:120px;border-radius:12px;
-  background:linear-gradient(135deg,rgba(24,160,251,0.15),rgba(151,71,255,0.15));
-  border:2px solid rgba(24,160,251,0.25);
-  display:grid;place-items:center;font-size:44px;flex-shrink:0;
+  width:140px;height:140px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(61,90,254,0.08),rgba(151,71,255,0.08));
+  border:1px solid var(--border);
+  display:grid;place-items:center;flex-shrink:0;
 }
+.hero-avatar-box img{display:block}
 .tag-pill{
   display:inline-flex;align-items:center;gap:6px;
   background:rgba(24,160,251,0.12);border:1px solid rgba(24,160,251,0.25);
@@ -391,7 +408,8 @@ a{color:inherit;text-decoration:none}
 .ccard__icon{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-size:15px;flex-shrink:0}
 .ccard__label{font-size:10px;color:rgba(255,255,255,0.35);font-family:'JetBrains Mono',monospace;margin-bottom:3px}
 .ccard__value{font-size:12px;font-weight:500}
-.avail-bar{margin-top:20px;background:rgba(27,196,125,0.08);border:1px solid rgba(27,196,125,0.2);border-radius:8px;padding:14px;display:flex;align-items:center;gap:10px}
+.avail-bar{margin-top:20px;background:rgba(27,196,125,0.08);border:1px solid rgba(27,196,125,0.2);border-radius:8px;padding:14px;display:flex;align-items:flex-start;gap:10px}
+.avail-dot{margin-top:5px}
 .avail-dot{width:7px;height:7px;border-radius:50%;background:#1bc47d;flex-shrink:0;animation:blink 2s ease infinite}
 .avail-bar p{font-size:12px;color:rgba(255,255,255,0.75)}
 
@@ -484,6 +502,25 @@ a{color:inherit;text-decoration:none}
 .detail-cell .dv{font-size:12px;font-weight:500;color:#333}
 .sidebar__footer{display:none;border-top:1px solid var(--border);padding:10px 12px;flex-shrink:0}
 @media(max-width:900px){.sidebar__footer{display:block}}
+
+/* ── ASSETS VIEW ─────────────────────────────────── */
+.assets-search{display:flex;align-items:center;gap:7px;margin:8px 10px 4px;padding:6px 9px;background:var(--bg-item);border:1px solid var(--border-light);border-radius:6px}
+.assets-search input{flex:1;background:none;border:none;outline:none;color:var(--text-primary);font-family:'Inter',sans-serif;font-size:11px;min-width:0}
+.assets-search input::placeholder{color:var(--text-muted)}
+.asset-group{margin:10px 0}
+.asset-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 10px}
+.asset-comp{display:flex;align-items:center;gap:6px;padding:9px 8px;background:var(--bg-item);border:1px solid var(--border);border-radius:6px;font-size:11px;color:var(--text-label);text-align:left;transition:all 120ms;overflow:hidden}
+.asset-comp:hover{border-color:var(--accent);background:var(--bg-item-hover);color:var(--text-primary)}
+.asset-comp span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.asset-comp__ico{font-size:13px;flex-shrink:0}
+.asset-list{padding:0 10px;display:flex;flex-direction:column;gap:3px}
+.asset-style{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:5px;cursor:default;transition:background 120ms}
+.asset-style:hover{background:var(--bg-item-hover)}
+.asset-sw{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1px solid var(--border-light)}
+.asset-text{width:18px;flex-shrink:0;text-align:center;color:var(--text-primary)}
+.asset-style__name{flex:1;font-size:11px;color:var(--text-label)}
+.asset-style__hex{font-size:10px;color:var(--text-muted);font-family:'JetBrains Mono',monospace}
+.asset-empty{padding:24px 12px;text-align:center;font-size:11px;color:var(--text-muted)}
 .sidebar__status{font-size:10px;color:var(--text-muted);margin-top:9px;display:flex;align-items:center;gap:5px}
 .toast{position:fixed;bottom:52px;left:50%;transform:translate(-50%,12px);background:#1e1e1e;color:#fff;border:1px solid #444;padding:9px 16px;border-radius:8px;font-size:12px;z-index:300;opacity:0;pointer-events:none;transition:opacity 250ms,transform 250ms;box-shadow:0 8px 30px rgba(0,0,0,0.4)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -508,11 +545,7 @@ body.outlines .frame__label{color:var(--accent)}
 
   <!-- HJ Logo big -->
   <div class="splash-logo">
-    <svg width="64" height="64" viewBox="0 0 64 64">
-      <rect width="64" height="64" rx="14" fill="#1a1a1a"/>
-      <text x="9" y="44" font-family="Inter,sans-serif" font-weight="800" font-size="34" letter-spacing="-1" fill="#18a0fb">H</text>
-      <text x="35" y="44" font-family="Inter,sans-serif" font-weight="800" font-size="34" letter-spacing="-1" fill="#f24e1e">J</text>
-    </svg>
+    <img src="assets/hj-logo.png" width="80" height="80" alt="Himanshi Jain logo" style="display:block"/>
   </div>
 
   <h1 class="splash-title">Every designer has a portfolio.<br>Himanshi's is a Figma file.</h1>
@@ -544,14 +577,10 @@ body.outlines .frame__label{color:var(--accent)}
 
   <!-- TOOLBAR -->
   <div class="toolbar">
-    <!-- HJ Logo -->
-    <div class="hj-logo">
-      <svg width="22" height="22" viewBox="0 0 64 64">
-        <rect width="64" height="64" rx="10" fill="#1a1a1a"/>
-        <text x="7" y="46" font-family="Inter,sans-serif" font-weight="800" font-size="38" letter-spacing="-1" fill="#18a0fb">H</text>
-        <text x="35" y="46" font-family="Inter,sans-serif" font-weight="800" font-size="38" letter-spacing="-1" fill="#f24e1e">J</text>
-      </svg>
-    </div>
+    <!-- HJ Logo → back to front page -->
+    <button class="hj-logo" onclick="backToSplash()" title="Back to start" aria-label="Back to front page">
+      <img src="assets/hj-logo.png" width="26" height="26" alt="Himanshi Jain logo" style="display:block"/>
+    </button>
 
     <!-- Mobile menu -->
     <button class="mobile-menu-btn" id="menuBtn" onclick="toggleSidebar()">
@@ -587,7 +616,7 @@ body.outlines .frame__label{color:var(--accent)}
       </div>
       <a class="cv-btn-sm" href="https://himanshijain.in/assets/Himanshi_Jain_CV.pdf" download="Himanshi_Jain_CV.pdf">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
-        CV
+        <span class="cv-label">CV</span>
       </a>
       <button class="share-btn" onclick="shareLink()">Share</button>
     </div>
@@ -600,11 +629,11 @@ body.outlines .frame__label{color:var(--accent)}
     <div class="sidebar" id="sidebar">
       <div class="sidebar__header">
         <div class="sidebar__tabs">
-          <button class="sidebar__tab active">Layers</button>
-          <button class="sidebar__tab">Assets</button>
+          <button class="sidebar__tab active" id="tabLayers" onclick="switchSidebarTab('layers')">Layers</button>
+          <button class="sidebar__tab" id="tabAssets" onclick="switchSidebarTab('assets')">Assets</button>
         </div>
       </div>
-      <div class="sidebar__body">
+      <div class="sidebar__body" id="layersView">
 
         <div class="layer-group">
           <div class="layer-group__title">Pages</div>
@@ -679,6 +708,49 @@ body.outlines .frame__label{color:var(--accent)}
 
       </div>
 
+      <!-- ASSETS VIEW -->
+      <div class="sidebar__body" id="assetsView" style="display:none">
+        <div class="assets-search">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-muted);flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="text" id="assetSearch" placeholder="Search components…" oninput="filterAssets(this.value)" aria-label="Search components"/>
+        </div>
+
+        <div class="asset-group" data-group>
+          <div class="layer-group__title">Pages · Components</div>
+          <div class="asset-grid">
+            <button class="asset-comp" data-name="Welcome" onclick="selectLayer(getLayerEl('frame-hero'),'frame-hero','about')"><span class="asset-comp__ico" style="color:#18a0fb">◇</span><span>Welcome</span></button>
+            <button class="asset-comp" data-name="Stats Bar" onclick="selectLayer(getLayerEl('frame-stats'),'frame-stats','about')"><span class="asset-comp__ico" style="color:#18a0fb">◇</span><span>Stats Bar</span></button>
+            <button class="asset-comp" data-name="About Detailed" onclick="selectLayer(getLayerEl('frame-bio'),'frame-bio','about')"><span class="asset-comp__ico" style="color:#18a0fb">◇</span><span>About</span></button>
+            <button class="asset-comp" data-name="Projects Grid" onclick="selectLayer(getLayerEl('frame-projects'),'frame-projects','projects')"><span class="asset-comp__ico" style="color:#18a0fb">◇</span><span>Projects</span></button>
+            <button class="asset-comp" data-name="Resume" onclick="selectLayer(getLayerEl('frame-resume'),'frame-resume','resume')"><span class="asset-comp__ico" style="color:#18a0fb">◇</span><span>Resume</span></button>
+            <button class="asset-comp" data-name="Skills" onclick="selectLayer(getLayerEl('frame-skills'),'frame-skills','resume')"><span class="asset-comp__ico" style="color:#18a0fb">◇</span><span>Skills</span></button>
+            <button class="asset-comp" data-name="Contact" onclick="selectLayer(getLayerEl('frame-contact'),'frame-contact','contact')"><span class="asset-comp__ico" style="color:#18a0fb">◇</span><span>Contact</span></button>
+          </div>
+        </div>
+
+        <div class="asset-group" data-group>
+          <div class="layer-group__title">Color Styles</div>
+          <div class="asset-list">
+            <div class="asset-style" data-name="Figma Blue"><span class="asset-sw" style="background:#18a0fb"></span><span class="asset-style__name">Figma Blue</span><span class="asset-style__hex">18A0FB</span></div>
+            <div class="asset-style" data-name="Purple"><span class="asset-sw" style="background:#9747ff"></span><span class="asset-style__name">Purple</span><span class="asset-style__hex">9747FF</span></div>
+            <div class="asset-style" data-name="Green"><span class="asset-sw" style="background:#1bc47d"></span><span class="asset-style__name">Green</span><span class="asset-style__hex">1BC47D</span></div>
+            <div class="asset-style" data-name="Red Orange"><span class="asset-sw" style="background:#f24822"></span><span class="asset-style__name">Red Orange</span><span class="asset-style__hex">F24822</span></div>
+            <div class="asset-style" data-name="Ink"><span class="asset-sw" style="background:#1a1a1a;border-color:#555"></span><span class="asset-style__name">Ink</span><span class="asset-style__hex">1A1A1A</span></div>
+          </div>
+        </div>
+
+        <div class="asset-group" data-group>
+          <div class="layer-group__title">Text Styles</div>
+          <div class="asset-list">
+            <div class="asset-style" data-name="Display / Bold"><span class="asset-text" style="font-size:15px;font-weight:700">Ag</span><span class="asset-style__name">Display</span><span class="asset-style__hex">Inter 700</span></div>
+            <div class="asset-style" data-name="Body / Regular"><span class="asset-text" style="font-size:13px;font-weight:400">Ag</span><span class="asset-style__name">Body</span><span class="asset-style__hex">Inter 400</span></div>
+            <div class="asset-style" data-name="Mono / Label"><span class="asset-text" style="font-size:12px;font-family:'JetBrains Mono',monospace">Ag</span><span class="asset-style__name">Mono</span><span class="asset-style__hex">JetBrains</span></div>
+          </div>
+        </div>
+
+        <div class="asset-empty" id="assetEmpty" style="display:none">No components found</div>
+      </div>
+
       <div class="sidebar__footer">
         <a class="panel__link" href="https://hjcasestudy.netlify.app/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Deep Portfolio</a>
         <a class="panel__link" href="https://www.linkedin.com/in/himanshi-jain-a589691b5/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>LinkedIn</a>
@@ -710,7 +782,7 @@ body.outlines .frame__label{color:var(--accent)}
                   <div class="hero-quote">"Good design shouldn't shout — it should whisper. The best interfaces are the ones you stop noticing, because they get out of your way."</div>
                 </div>
                 <div class="about-hero__avatar">
-                  <div class="hero-avatar-box">🎨</div>
+                  <div class="hero-avatar-box"><img src="assets/hj-logo.png" width="84" height="84" alt="Himanshi Jain logo"/></div>
                 </div>
               </div>
             </div>
@@ -1043,13 +1115,54 @@ function applyTheme(theme) {
 var splashToggle = document.getElementById('splashToggle');
 // We re-use the CSS-driven toggle — clicking it just flips the attribute
 document.getElementById('splashToggle').addEventListener('click', function(){
-  var t = document.documentElement.getAttribute('data-theme') || 'dark';
+  var t = document.documentElement.getAttribute('data-theme') || 'light';
   applyTheme(t === 'dark' ? 'light' : 'dark');
 });
 document.getElementById('appToggle').addEventListener('click', function(){
-  var t = document.documentElement.getAttribute('data-theme') || 'dark';
+  var t = document.documentElement.getAttribute('data-theme') || 'light';
   applyTheme(t === 'dark' ? 'light' : 'dark');
 });
+
+// ── Back to front page (splash) ─────────────────────
+function backToSplash() {
+  var splash = document.getElementById('splash');
+  var app = document.getElementById('app');
+  app.classList.remove('visible');
+  splash.style.display = 'flex';
+  splash.style.opacity = '0';
+  splash.style.transform = 'scale(1.04)';
+  void splash.offsetWidth; // force reflow so the transition runs
+  splash.style.opacity = '1';
+  splash.style.transform = 'scale(1)';
+  switchPage('about');
+  window.scrollTo(0, 0);
+}
+
+// ── Sidebar Layers / Assets tabs ────────────────────
+function switchSidebarTab(tab) {
+  var isAssets = tab === 'assets';
+  document.getElementById('layersView').style.display = isAssets ? 'none' : '';
+  document.getElementById('assetsView').style.display = isAssets ? '' : 'none';
+  document.getElementById('tabLayers').classList.toggle('active', !isAssets);
+  document.getElementById('tabAssets').classList.toggle('active', isAssets);
+}
+function getLayerEl(frameId) {
+  return document.querySelector('.layer-item[onclick*="'+frameId+'"]') || document.querySelector('.layer-item');
+}
+function filterAssets(q) {
+  q = (q || '').trim().toLowerCase();
+  var anyComp = false;
+  document.querySelectorAll('#assetsView [data-name]').forEach(function(el){
+    var hit = el.getAttribute('data-name').toLowerCase().indexOf(q) !== -1;
+    el.style.display = hit ? '' : 'none';
+    if (hit) anyComp = true;
+  });
+  document.querySelectorAll('#assetsView [data-group]').forEach(function(g){
+    var visible = g.querySelector('[data-name]:not([style*="display: none"])');
+    g.style.display = visible ? '' : 'none';
+  });
+  document.getElementById('assetEmpty').style.display = anyComp ? 'none' : 'block';
+}
 
 // ── Toolbar tools ───────────────────────────────────
 function setTool(t) {
