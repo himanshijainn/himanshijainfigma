@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Himanshi Jain — Portfolio.fig</title>
-<meta name="description" content="Himanshi Jain — UX Designer based in Gurugram, India. 3+ years designing scalable SaaS and D2C products. 18 case studies, presented as a Figma file."/>
+<meta name="description" content="Himanshi Jain — UX Designer in Gurugram, India. 3+ years designing scalable SaaS and D2C products used by 50,000+ people, presented as a living Figma file."/>
 <meta name="author" content="Himanshi Jain"/>
 <!-- Open Graph · update og:url + og:image to the final deploy URL before publishing -->
 <meta property="og:type" content="website"/>
@@ -31,6 +31,7 @@
   --border:#3a3a3a; --border-light:#444;
   --text-primary:#e0e0e0; --text-secondary:#999; --text-muted:#666; --text-label:#ccc;
   --accent:#18a0fb; --accent-purple:#9747ff; --accent-green:#1bc47d; --accent-red:#f24822;
+  --accent-amber:#f59e2c; --accent-pink:#9747ff;
   --frame-bg:#ffffff; --frame-text:#1a1a1a;
   --dot-color:rgba(255,255,255,0.055);
   --splash-bg:#1e1e1e; --splash-text:#fff; --splash-sub:rgba(255,255,255,0.45);
@@ -42,6 +43,8 @@
   --bg-item-hover:#ebebeb; --bg-selected:#18a0fb18;
   --border:#e0e0e0; --border-light:#d0d0d0;
   --text-primary:#1a1a1a; --text-secondary:#666; --text-muted:#999; --text-label:#333;
+  --accent:#18a0fb; --accent-purple:#9747ff; --accent-green:#1bc47d; --accent-red:#f24822;
+  --accent-amber:#f59e2c; --accent-pink:#9747ff;
   --frame-bg:#ffffff; --frame-text:#1a1a1a;
   --dot-color:rgba(0,0,0,0.055);
   --splash-bg:#f9f9f9; --splash-text:#1a1a1a; --splash-sub:rgba(0,0,0,0.45);
@@ -52,6 +55,8 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;font-size:1
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 a{color:inherit;text-decoration:none}
 
+.hj-logo-img{background-image:url('assets/hj-logo.png');background-size:contain;background-repeat:no-repeat;background-position:center;flex-shrink:0}
+
 /* ── SPLASH ─────────────────────────────────────── */
 #splash{
   position:fixed;inset:0;z-index:999;
@@ -61,6 +66,7 @@ a{color:inherit;text-decoration:none}
   padding:24px;
   transition:opacity 450ms ease, transform 450ms ease;
 }
+.splash-logo{margin-bottom:28px}
 .splash-toggle{
   position:absolute;top:16px;right:16px;
   width:44px;height:22px;border-radius:999px;
@@ -83,7 +89,10 @@ a{color:inherit;text-decoration:none}
   font-size:clamp(26px,5vw,50px);font-weight:700;
   color:var(--splash-text);text-align:center;
   letter-spacing:-0.02em;line-height:1.15;
-  margin-bottom:10px;max-width:560px;
+  margin-bottom:10px;max-width:600px;
+}
+.splash-title .grad{
+  color:var(--accent);
 }
 .splash-sub{
   font-size:15px;color:var(--splash-sub);
@@ -105,15 +114,16 @@ a{color:inherit;text-decoration:none}
 .splash-box span{flex:1;font-size:14px;color:var(--text-muted)}
 .splash-box__arrow{
   width:30px;height:30px;border-radius:50%;
-  background:var(--bg-item);display:grid;place-items:center;flex-shrink:0;
+  background:var(--accent);color:#fff;display:grid;place-items:center;flex-shrink:0;
 }
+.splash-box__arrow svg{color:#fff !important}
 .splash-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:40px}
 .splash-chip{
   background:var(--chip-bg);border:1px solid var(--chip-border);
   color:var(--chip-text);padding:7px 16px;border-radius:999px;
   font-size:12px;cursor:pointer;transition:all 150ms;font-family:'Inter',sans-serif;
 }
-.splash-chip:hover{border-color:var(--accent);color:var(--accent)}
+.splash-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
 .splash-footer{font-size:11px;color:var(--text-muted);text-align:center}
 
 /* ── APP ─────────────────────────────────────────── */
@@ -321,16 +331,16 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--border);
   display:grid;place-items:center;flex-shrink:0;
 }
-.hero-avatar-box img{display:block}
+.hero-avatar-box img,.hero-avatar-box .hj-logo-img{display:block}
 .tag-pill{
   display:inline-flex;align-items:center;gap:6px;
-  background:rgba(24,160,251,0.12);border:1px solid rgba(24,160,251,0.25);
-  color:#18a0fb;padding:3px 10px;border-radius:999px;
+  background:rgba(91,143,201,0.16);border:1px solid rgba(91,143,201,0.35);
+  color:#cfe6ff;padding:3px 10px;border-radius:999px;
   font-size:11px;font-weight:500;margin-bottom:14px;
 }
 .tag-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#1bc47d;animation:blink 2s ease infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.hero-name{font-size:clamp(32px,6vw,48px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:6px}
+.hero-name{font-size:clamp(32px,6vw,48px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:6px;color:#fff}
 .hero-role{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:18px}
 .hero-quote{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;font-style:italic;border-left:2px solid #18a0fb;padding-left:12px;max-width:460px}
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);background:#f8f9fa}
@@ -389,7 +399,7 @@ a{color:inherit;text-decoration:none}
 .chip{padding:3px 9px;border-radius:4px;font-size:11px;font-weight:500}
 .chip.b{background:#e8f4ff;color:#18a0fb}
 .chip.g{background:#e8f5e8;color:#1bc47d}
-.chip.p{background:#f0e8ff;color:#9747ff}
+.chip.p{background:#f0e8ff;color:#18a0fb}
 .chip.o{background:#fff0e8;color:#f24822}
 
 /* ── CONTACT ──────────────────────────────────────── */
@@ -499,7 +509,7 @@ a{color:inherit;text-decoration:none}
 @media(min-width:701px){.drawer-overlay{display:none!important}}
 
 /* ── LAYER HIGHLIGHT ANIMATION ───────────────────── */
-@keyframes frameFlash{0%,100%{outline-color:var(--accent);box-shadow:0 0 0 4px rgba(24,160,251,0.15),0 4px 32px rgba(0,0,0,0.35)}50%{outline-color:#9747ff;box-shadow:0 0 0 6px rgba(151,71,255,0.2),0 4px 32px rgba(0,0,0,0.35)}}
+@keyframes frameFlash{0%,100%{outline-color:var(--accent);box-shadow:0 0 0 4px rgba(24,160,251,0.15),0 4px 32px rgba(0,0,0,0.35)}50%{outline-color:#18a0fb;box-shadow:0 0 0 6px rgba(151,71,255,0.2),0 4px 32px rgba(0,0,0,0.35)}}
 .frame.flash{outline:2px solid var(--accent);outline-offset:3px;animation:frameFlash 600ms ease 2}
 
 /* ── NEW: HERO LINE / DETAIL GRID / FOOTER / TOAST ── */
@@ -554,28 +564,28 @@ body.outlines .frame__label{color:var(--accent)}
 
   <!-- HJ Logo big -->
   <div class="splash-logo">
-    <img src="assets/hj-logo.png" width="80" height="80" alt="Himanshi Jain logo" style="display:block"/>
+    <div class="hj-logo-img" style="width:80px;height:80px"></div>
   </div>
 
-  <h1 class="splash-title">Every designer has a portfolio.<br>Himanshi's is a Figma file.</h1>
-  <p class="splash-sub">Himanshi Jain &nbsp;·&nbsp; UX Designer &nbsp;·&nbsp; Gurugram, India<br>3+ years &nbsp;·&nbsp; 18 case studies &nbsp;·&nbsp; 50,000+ users impacted</p>
+  <h1 class="splash-title">Anyone can list their work.<br><span class="grad">Himanshi opens the file.</span></h1>
+  <p class="splash-sub">Himanshi Jain &nbsp;·&nbsp; UX Designer &nbsp;·&nbsp; Gurugram, India<br>3+ years shipping &nbsp;·&nbsp; 18 case studies &nbsp;·&nbsp; products used by 50,000+ people</p>
 
   <div class="splash-box" onclick="openPortfolio()">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--text-muted);flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    <span>Open Portfolio.fig — layers, frames &amp; 18 case studies inside…</span>
+    <span>Open Portfolio.fig — step inside the layers, frames &amp; 18 case studies…</span>
     <div class="splash-box__arrow">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--text-muted)"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
     </div>
   </div>
 
   <div class="splash-chips">
-    <button class="splash-chip" onclick="openPortfolio('projects')">🗂 View Projects</button>
-    <button class="splash-chip" onclick="openPortfolio('resume')">📄 Read Resume</button>
-    <button class="splash-chip" onclick="openPortfolio('about')">👤 About Himanshi</button>
-    <button class="splash-chip" onclick="openPortfolio('contact')">✉️ Get in Touch</button>
+    <button class="splash-chip" onclick="openPortfolio('projects')">Browse the work</button>
+    <button class="splash-chip" onclick="openPortfolio('resume')">See the résumé</button>
+    <button class="splash-chip" onclick="openPortfolio('about')">Meet Himanshi</button>
+    <button class="splash-chip" onclick="openPortfolio('contact')">Say hello</button>
   </div>
 
-  <p class="splash-footer">Designed &amp; built by Himanshi Jain &nbsp;·&nbsp; himanshijain.in</p>
+  <p class="splash-footer">Designed, written &amp; coded by Himanshi Jain &nbsp;·&nbsp; himanshijain.in</p>
 </div>
 
 <!-- MOBILE DRAWER OVERLAY -->
@@ -588,7 +598,7 @@ body.outlines .frame__label{color:var(--accent)}
   <div class="toolbar">
     <!-- HJ Logo → back to front page -->
     <button class="hj-logo" onclick="backToSplash()" title="Back to start" aria-label="Back to front page">
-      <img src="assets/hj-logo.png" width="26" height="26" alt="Himanshi Jain logo" style="display:block"/>
+      <div class="hj-logo-img" style="width:26px;height:26px"></div>
     </button>
 
     <!-- Mobile menu -->
@@ -787,11 +797,11 @@ body.outlines .frame__label{color:var(--accent)}
                   <div class="tag-pill">Open to work · Available now</div>
                   <div class="hero-name">Himanshi<br>Jain</div>
                   <div class="hero-role">UX Designer · Gurugram, India</div>
-                  <p class="hero-line">I design SaaS and data-heavy products — the kind people open to get a job done, not to be entertained. My work ships to 50,000+ users every day.</p>
-                  <div class="hero-quote">"Good design shouldn't shout — it should whisper. The best interfaces are the ones you stop noticing, because they get out of your way."</div>
+                  <p class="hero-line">I work on SaaS and data-heavy products — the kind people open to finish a task, not to be impressed. Roughly 50,000 people rely on what I design every single day.</p>
+                  <div class="hero-quote">"The best interface is the one nobody talks about. If it's working, you forget it's there at all — and that quiet is the whole point."</div>
                 </div>
                 <div class="about-hero__avatar">
-                  <div class="hero-avatar-box"><img src="assets/hj-logo.png" width="84" height="84" alt="Himanshi Jain logo"/></div>
+                  <div class="hero-avatar-box"><div class="hj-logo-img" style="width:84px;height:84px"></div></div>
                 </div>
               </div>
             </div>
@@ -803,19 +813,19 @@ body.outlines .frame__label{color:var(--accent)}
               <div class="stats-row">
                 <div class="stat-cell">
                   <div class="stat-value" style="color:#18a0fb">3+</div>
-                  <div class="stat-label">Years Experience</div>
+                  <div class="stat-label">Years in the Field</div>
                 </div>
                 <div class="stat-cell">
                   <div class="stat-value" style="color:#9747ff">18</div>
-                  <div class="stat-label">Case Studies</div>
+                  <div class="stat-label">Projects Shipped</div>
                 </div>
                 <div class="stat-cell">
                   <div class="stat-value" style="color:#1bc47d">50k+</div>
-                  <div class="stat-label">Users Impacted</div>
+                  <div class="stat-label">People Reached Daily</div>
                 </div>
                 <div class="stat-cell">
                   <div class="stat-value" style="color:#f24822">5</div>
-                  <div class="stat-label">Live Products</div>
+                  <div class="stat-label">Products in Production</div>
                 </div>
               </div>
             </div>
@@ -826,20 +836,20 @@ body.outlines .frame__label{color:var(--accent)}
             <div class="frame" id="frame-bio">
               <div class="about-bio">
                 <h3>Who I am</h3>
-                <p>I'm a UX designer with 3+ years of experience building scalable, data-driven products. I came into design through code — I spent five months as a backend developer before realising the part I loved was the seam between the system and the human using it. That dual lens shows up in my work: I think in components, but I design for the messy edges where real people live.</p>
-                <p>Today I lead end-to-end design at Dancing Numbers — research, IA, flows, hi-fi, design QA, and the design system that holds it all together — on a QuickBooks automation SaaS trusted by 50,000+ accountants across the USA and Canada.</p>
+                <p>I'm a UX designer three-plus years into building scalable, data-driven products. My route in was unusual: I started out writing backend code, and five months in I realised the part that pulled at me wasn't the system itself but the narrow space where it meets the person using it. I still think in components and constraints — I just point that engineering habit at human problems now.</p>
+                <p>These days I own design end-to-end at Dancing Numbers: research, information architecture, flows, high-fidelity screens, design QA, and the system that keeps it all consistent. It's a QuickBooks automation SaaS that 50,000+ accountants across the US and Canada depend on to get through their day.</p>
                 <h3 style="margin-top:20px">What I do</h3>
-                <p>I design for SaaS and data-heavy interfaces — products where users come to get a job done. That means tight workflows, sensible defaults, and screens that respect your attention. I work closely with PMs and engineers, prototype to make trade-offs visible early, and obsess about empty states.</p>
-                <p><strong>Recent wins:</strong> reduced onboarding drop-offs 25% through flow optimisation · lifted daily active users 15% with a dashboard redesign · cut design hand-off friction 20% by rebuilding the team's component library.</p>
-                <h3 style="margin-top:20px">Off the clock</h3>
-                <p>You'll find me hunting for coffee shops that get the foam right, re-organising my Figma libraries for the third time this week, or on a slow train somewhere in the hills. I keep a running list of tiny UX details I love — receipts, transit cards, museum signage — and study them like other people study films.</p>
+                <p>My home turf is SaaS and dense, data-first interfaces — the screens people open with a job to finish, not time to kill. That calls for tight flows, defaults that do the thinking, and layouts that don't waste a second of anyone's attention. I stay close to PMs and engineers, prototype early so the hard trade-offs surface while they're still cheap, and I treat empty states as first-class screens, not afterthoughts.</p>
+                <p><strong>A few results I'm proud of:</strong> 25% fewer onboarding drop-offs after reworking the flow · 15% more daily active users following a dashboard redesign · 20% less hand-off friction once I rebuilt the team's component library.</p>
+                <h3 style="margin-top:20px">Away from the screen</h3>
+                <p>Off the clock I'm usually chasing a flat white worth the detour, reorganising my Figma libraries for the umpteenth time, or watching the hills roll past from a slow train. I keep a quiet collection of small interface details done right — receipts, metro cards, museum wayfinding — and pick them apart the way some people rewatch their favourite films.</p>
                 <div class="detail-grid">
-                  <div class="detail-cell"><div class="dk">Location</div><div class="dv">Gurugram, India</div></div>
-                  <div class="detail-cell"><div class="dk">Experience</div><div class="dv">3+ years · since Sept 2022</div></div>
-                  <div class="detail-cell"><div class="dk">Available for</div><div class="dv">Full-time · Freelance</div></div>
-                  <div class="detail-cell"><div class="dk">Specialisation</div><div class="dv">SaaS · Data UX</div></div>
+                  <div class="detail-cell"><div class="dk">Based in</div><div class="dv">Gurugram, India</div></div>
+                  <div class="detail-cell"><div class="dk">In the field</div><div class="dv">3+ years · since Sept 2022</div></div>
+                  <div class="detail-cell"><div class="dk">Open to</div><div class="dv">Full-time · Freelance</div></div>
+                  <div class="detail-cell"><div class="dk">Focus area</div><div class="dv">SaaS · Data UX</div></div>
                   <div class="detail-cell"><div class="dk">Education</div><div class="dv">MCA · CGPA 9.4/10</div></div>
-                  <div class="detail-cell"><div class="dk">Certification</div><div class="dv">Google UX Design · 2024</div></div>
+                  <div class="detail-cell"><div class="dk">Certified</div><div class="dv">Google UX Design · 2024</div></div>
                 </div>
                 <div class="bio-tags">
                   <span class="bio-tag">Figma</span><span class="bio-tag">Adobe XD</span><span class="bio-tag">SaaS UX</span><span class="bio-tag">Design Systems</span><span class="bio-tag">User Research</span><span class="bio-tag">Prototyping</span><span class="bio-tag">WCAG 2.2</span><span class="bio-tag">Usability Testing</span>
@@ -859,29 +869,29 @@ body.outlines .frame__label{color:var(--accent)}
                   <div>
                     <div class="pcard__num">PINNED · 00</div>
                     <div class="pcard__title">Deep Portfolio — 5 Documented Case Studies</div>
-                    <div class="pcard__desc">Brand-accurate documentation across Design Systems, UX Research, Accessibility & Motion Design</div>
+                    <div class="pcard__desc">The full thinking behind the work — Design Systems, UX Research, Accessibility &amp; Motion, written up brand-accurate.</div>
                     <div class="pcard__tags"><span class="pcard__tag">Design System</span><span class="pcard__tag">Research</span><span class="pcard__tag">WCAG</span></div>
                     <a href="https://hjcasestudy.netlify.app/" target="_blank" onclick="event.stopPropagation()" class="pcard__link">↗ hjcasestudy.netlify.app</a>
                   </div>
                   <div class="featured-badge">5 Deep Case Studies</div>
                 </div>
-                <div class="pcard" onclick="openProject('agile')"><div class="pcard__num">01</div><div class="pcard__title">Agile Ventures — Website Redesign</div><div class="pcard__desc">Corporate redesign for Gurugram-based business group.</div><div class="pcard__tags"><span class="pcard__tag">Web</span><span class="pcard__tag">B2B</span></div><div class="pcard__badge">Live ↗</div></div>
-                <div class="pcard" onclick="openProject('dn')"><div class="pcard__num">02</div><div class="pcard__title">Dancing Numbers — SaaS Redesign</div><div class="pcard__desc">QuickBooks automation for 50,000+ accountants.</div><div class="pcard__tags"><span class="pcard__tag">SaaS</span><span class="pcard__tag">Conversion</span></div><div class="pcard__badge">Live ↗</div></div>
-                <div class="pcard" onclick="openProject('sleepsia')"><div class="pcard__num">03</div><div class="pcard__title">Sleepsia — D2C E-commerce</div><div class="pcard__desc">Shopify storefront redesign. Mobile-first UX.</div><div class="pcard__tags"><span class="pcard__tag">E-commerce</span><span class="pcard__tag">Shopify</span></div><div class="pcard__badge">Live ↗</div></div>
-                <div class="pcard" onclick="openProject('lounge')"><div class="pcard__num">04</div><div class="pcard__title">Sleepsia Lounge — Nightwear D2C</div><div class="pcard__desc">Lifestyle-first UX for premium women's brand.</div><div class="pcard__tags"><span class="pcard__tag">Fashion</span><span class="pcard__tag">Mobile</span></div><div class="pcard__badge">Live ↗</div></div>
-                <div class="pcard" onclick="openProject('gopt')"><div class="pcard__num">05</div><div class="pcard__title">GOPT — Healthcare Pain App</div><div class="pcard__desc">3D anatomy pain mapping for async consultations.</div><div class="pcard__tags"><span class="pcard__tag">Healthcare</span><span class="pcard__tag">Web App</span></div><div class="pcard__badge">Live ↗</div></div>
-                <div class="pcard" onclick="openProject('qe')"><div class="pcard__num">06</div><div class="pcard__title">Quality Engineering CA</div><div class="pcard__desc">B2B consulting — credibility-first design.</div><div class="pcard__tags"><span class="pcard__tag">B2B</span><span class="pcard__tag">WordPress</span></div><div class="pcard__badge">Live ↗</div></div>
-                <div class="pcard" onclick="openProject('accountspro')"><div class="pcard__num">07</div><div class="pcard__title">AccountsPro — Bookkeeping Services</div><div class="pcard__desc">NY-based QuickBooks &amp; Sage support. Conversion-led.</div><div class="pcard__tags"><span class="pcard__tag">B2B</span><span class="pcard__tag">Lead Gen</span></div><div class="pcard__badge">Live ↗</div></div>
-                <div class="pcard" onclick="openProject('a1')"><div class="pcard__num">08</div><div class="pcard__title">A1 — Medicine E-commerce App</div><div class="pcard__desc">Wireframe to hi-fi. Trust-first health purchases.</div><div class="pcard__tags"><span class="pcard__tag">Healthcare</span><span class="pcard__tag">Mobile</span></div></div>
-                <div class="pcard" onclick="openProject('wallet')"><div class="pcard__num">09</div><div class="pcard__title">Wallet Z — Fintech App</div><div class="pcard__desc">Lightweight mobile wallet UI concept.</div><div class="pcard__tags"><span class="pcard__tag">Fintech</span><span class="pcard__tag">Mobile</span></div></div>
-                <div class="pcard" onclick="openProject('pawly')"><div class="pcard__num">10</div><div class="pcard__title">Pawly — Pet Care App</div><div class="pcard__desc">Warm, functional pet care companion.</div><div class="pcard__tags"><span class="pcard__tag">Pet Tech</span><span class="pcard__tag">Mobile</span></div></div>
-                <div class="pcard" onclick="openProject('rajasthan')"><div class="pcard__num">11</div><div class="pcard__title">Rajasthan Tourism — UI Concept</div><div class="pcard__desc">Rich cultural UX for iconic destination.</div><div class="pcard__tags"><span class="pcard__tag">Tourism</span><span class="pcard__tag">Concept</span></div></div>
-                <div class="pcard" onclick="openProject('dreamteam')"><div class="pcard__num">12</div><div class="pcard__title">DreamTeam — Real Estate UI</div><div class="pcard__desc">Property discovery + agent matching platform.</div><div class="pcard__tags"><span class="pcard__tag">Real Estate</span><span class="pcard__tag">Mobile</span></div></div>
-                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">13</div><div class="pcard__title">Social Media Dashboard</div><div class="pcard__desc">Analytics dashboard UI concept.</div><div class="pcard__tags"><span class="pcard__tag">Dashboard</span><span class="pcard__tag">Behance ↗</span></div></a>
-                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">14</div><div class="pcard__title">UI/UX Roadmap</div><div class="pcard__desc">Visual learning roadmap for designers.</div><div class="pcard__tags"><span class="pcard__tag">Infographic</span><span class="pcard__tag">Behance ↗</span></div></a>
-                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">15</div><div class="pcard__title">Restaurant — Web UI Concept</div><div class="pcard__desc">Appetite-first restaurant experience.</div><div class="pcard__tags"><span class="pcard__tag">Food</span><span class="pcard__tag">Behance ↗</span></div></a>
-                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">16</div><div class="pcard__title">Engagement Invitation</div><div class="pcard__desc">Digital invitation design concept.</div><div class="pcard__tags"><span class="pcard__tag">Visual</span><span class="pcard__tag">Behance ↗</span></div></a>
-                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">17</div><div class="pcard__title">Cancer Blog — Web Concept</div><div class="pcard__desc">Empathetic health content platform.</div><div class="pcard__tags"><span class="pcard__tag">Health</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <div class="pcard" onclick="openProject('agile')"><div class="pcard__num">01</div><div class="pcard__title">Agile Ventures — Website Redesign</div><div class="pcard__desc">A corporate refresh for a Gurugram business group.</div><div class="pcard__tags"><span class="pcard__tag">Web</span><span class="pcard__tag">B2B</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('dn')"><div class="pcard__num">02</div><div class="pcard__title">Dancing Numbers — SaaS Redesign</div><div class="pcard__desc">QuickBooks automation serving 50,000+ accountants.</div><div class="pcard__tags"><span class="pcard__tag">SaaS</span><span class="pcard__tag">Conversion</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('sleepsia')"><div class="pcard__num">03</div><div class="pcard__title">Sleepsia — D2C E-commerce</div><div class="pcard__desc">A mobile-first rethink of a Shopify storefront.</div><div class="pcard__tags"><span class="pcard__tag">E-commerce</span><span class="pcard__tag">Shopify</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('lounge')"><div class="pcard__num">04</div><div class="pcard__title">Sleepsia Lounge — Nightwear D2C</div><div class="pcard__desc">Lifestyle-led UX for a premium women's label.</div><div class="pcard__tags"><span class="pcard__tag">Fashion</span><span class="pcard__tag">Mobile</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('gopt')"><div class="pcard__num">05</div><div class="pcard__title">GOPT — Healthcare Pain App</div><div class="pcard__desc">Map pain on a 3D body for remote consults.</div><div class="pcard__tags"><span class="pcard__tag">Healthcare</span><span class="pcard__tag">Web App</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('qe')"><div class="pcard__num">06</div><div class="pcard__title">Quality Engineering CA</div><div class="pcard__desc">B2B consulting site built to earn trust fast.</div><div class="pcard__tags"><span class="pcard__tag">B2B</span><span class="pcard__tag">WordPress</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('accountspro')"><div class="pcard__num">07</div><div class="pcard__title">AccountsPro — Bookkeeping Services</div><div class="pcard__desc">NY QuickBooks &amp; Sage support, built to convert.</div><div class="pcard__tags"><span class="pcard__tag">B2B</span><span class="pcard__tag">Lead Gen</span></div><div class="pcard__badge">Live ↗</div></div>
+                <div class="pcard" onclick="openProject('a1')"><div class="pcard__num">08</div><div class="pcard__title">A1 — Medicine E-commerce App</div><div class="pcard__desc">Wireframe to hi-fi, with trust at the centre.</div><div class="pcard__tags"><span class="pcard__tag">Healthcare</span><span class="pcard__tag">Mobile</span></div></div>
+                <div class="pcard" onclick="openProject('wallet')"><div class="pcard__num">09</div><div class="pcard__title">Wallet Z — Fintech App</div><div class="pcard__desc">A pared-back mobile wallet concept.</div><div class="pcard__tags"><span class="pcard__tag">Fintech</span><span class="pcard__tag">Mobile</span></div></div>
+                <div class="pcard" onclick="openProject('pawly')"><div class="pcard__num">10</div><div class="pcard__title">Pawly — Pet Care App</div><div class="pcard__desc">A warm but capable companion for pet owners.</div><div class="pcard__tags"><span class="pcard__tag">Pet Tech</span><span class="pcard__tag">Mobile</span></div></div>
+                <div class="pcard" onclick="openProject('rajasthan')"><div class="pcard__num">11</div><div class="pcard__title">Rajasthan Tourism — UI Concept</div><div class="pcard__desc">Digital UX worthy of the destination itself.</div><div class="pcard__tags"><span class="pcard__tag">Tourism</span><span class="pcard__tag">Concept</span></div></div>
+                <div class="pcard" onclick="openProject('dreamteam')"><div class="pcard__num">12</div><div class="pcard__title">DreamTeam — Real Estate UI</div><div class="pcard__desc">Find a home and the right agent, minus the noise.</div><div class="pcard__tags"><span class="pcard__tag">Real Estate</span><span class="pcard__tag">Mobile</span></div></div>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">13</div><div class="pcard__title">Social Media Dashboard</div><div class="pcard__desc">An analytics dashboard concept.</div><div class="pcard__tags"><span class="pcard__tag">Dashboard</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">14</div><div class="pcard__title">UI/UX Roadmap</div><div class="pcard__desc">A visual learning path for designers.</div><div class="pcard__tags"><span class="pcard__tag">Infographic</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">15</div><div class="pcard__title">Restaurant — Web UI Concept</div><div class="pcard__desc">A web experience that makes you hungry.</div><div class="pcard__tags"><span class="pcard__tag">Food</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">16</div><div class="pcard__title">Engagement Invitation</div><div class="pcard__desc">A digital invite, designed with care.</div><div class="pcard__tags"><span class="pcard__tag">Visual</span><span class="pcard__tag">Behance ↗</span></div></a>
+                <a class="pcard" href="https://www.behance.net/himanshiiijain" target="_blank" style="display:block;text-decoration:none"><div class="pcard__num">17</div><div class="pcard__title">Cancer Blog — Web Concept</div><div class="pcard__desc">A health content platform built on empathy.</div><div class="pcard__tags"><span class="pcard__tag">Health</span><span class="pcard__tag">Behance ↗</span></div></a>
               </div>
             </div>
           </div>
@@ -901,7 +911,7 @@ body.outlines .frame__label{color:var(--accent)}
                       <div class="resume-title">UI/UX Designer</div>
                       <div class="resume-co">Dancing Numbers Pvt. Ltd.</div>
                       <div class="resume-meta">Mar 2024 — Present · Gurugram</div>
-                      <div class="resume-desc">Lead UX on QuickBooks automation SaaS trusted by 50,000+ accountants across USA and Canada. Own full design process — research to QA. Rebuilt company website; established Figma component library.</div>
+                      <div class="resume-desc">Lead designer on a QuickBooks automation SaaS that 50,000+ accountants across the US and Canada rely on. I run the whole process from research through QA, rebuilt the company website end-to-end, and set up the Figma component library the team designs from today.</div>
                     </div>
                   </div>
                   <div class="resume-entry">
@@ -910,7 +920,7 @@ body.outlines .frame__label{color:var(--accent)}
                       <div class="resume-title">UI/UX Designer</div>
                       <div class="resume-co">iRasus Technologies Pvt. Ltd.</div>
                       <div class="resume-meta">Sept 2022 — Mar 2024 · Gurugram</div>
-                      <div class="resume-desc">Joined as Backend Developer → transitioned to UX after 5 months. Led design for 10+ B2B/B2C products. Built scalable UI component libraries across multiple products.</div>
+                      <div class="resume-desc">Came in as a backend developer and moved into UX within five months once the design side clicked. Went on to lead design across 10+ B2B and B2C products and built the reusable UI component libraries that kept them consistent.</div>
                     </div>
                   </div>
                 </div>
@@ -946,19 +956,19 @@ body.outlines .frame__label{color:var(--accent)}
             <div class="frame__label">⬚ Contact / Let's work together</div>
             <div class="frame" id="frame-contact">
               <div class="contact-frame">
-                <h2>Let's work together.</h2>
-                <p>Full-time roles · Freelance projects · Gurugram, India (IST, GMT+5:30) · Usually replies within 24 hours on weekdays</p>
+                <h2>Let's build something.</h2>
+                <p>Full-time or freelance · Based in Gurugram, India (IST, GMT+5:30) · I usually reply within a day on weekdays</p>
                 <div class="contact-grid">
                   <a class="ccard" href="mailto:himanshijain053@gmail.com"><div class="ccard__icon" style="background:rgba(24,160,251,0.12);color:#18a0fb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><div class="ccard__label">Email</div><div class="ccard__value">himanshijain053@gmail.com</div></div></a>
                   <a class="ccard" href="https://wa.me/917014744297" target="_blank"><div class="ccard__icon" style="background:rgba(27,196,125,0.14);color:#1bc47d"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.16c-.24.68-1.42 1.32-1.95 1.36-.5.04-.97.22-3.3-.69-2.78-1.1-4.55-3.94-4.69-4.12-.14-.18-1.13-1.5-1.13-2.86s.71-2.03.97-2.3c.24-.27.53-.34.71-.34l.5.01c.16.01.38-.06.59.45.24.58.81 2 .88 2.14.07.14.12.31.02.49-.43.86-.89 1.04-.45 1.71.66.99 1.32 1.66 2.43 2.27.18.1.3.08.42-.05.12-.14.49-.57.62-.77.13-.2.26-.16.43-.1.18.07 1.14.54 1.34.64.2.1.33.14.38.22.05.09.05.5-.19 1.18Z"/></svg></div><div><div class="ccard__label">WhatsApp</div><div class="ccard__value">+91 70147 44297</div></div></a>
                   <a class="ccard" href="https://www.linkedin.com/in/himanshi-jain-a589691b5/" target="_blank"><div class="ccard__icon" style="background:rgba(10,102,194,0.14);color:#0a66c2"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 18.34V9.74H5.67v8.6h2.67ZM7 8.57a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1Zm11.34 9.77v-4.71c0-2.52-1.35-3.69-3.15-3.69-1.45 0-2.1.8-2.46 1.36v-1.17h-2.67v8.6h2.67v-4.55c0-1.2.83-1.62 1.43-1.62.62 0 1.18.43 1.18 1.62v4.55h2.67Z"/></svg></div><div><div class="ccard__label">LinkedIn</div><div class="ccard__value">Himanshi Jain</div></div></a>
                   <a class="ccard" href="https://www.behance.net/himanshiiijain" target="_blank"><div class="ccard__icon" style="background:rgba(24,160,251,0.1);font-size:12px;font-weight:700;color:#18a0fb">Bē</div><div><div class="ccard__label">Behance</div><div class="ccard__value">behance.net/himanshiiijain</div></div></a>
                   <a class="ccard" href="https://www.instagram.com/thehimanshi.jain/" target="_blank"><div class="ccard__icon" style="background:rgba(225,48,108,0.14);color:#e1306c"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div><div><div class="ccard__label">Instagram</div><div class="ccard__value">@thehimanshi.jain</div></div></a>
-                  <a class="ccard" href="https://hjcasestudy.netlify.app/" target="_blank"><div class="ccard__icon" style="background:rgba(151,71,255,0.14);color:#9747ff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div><div><div class="ccard__label">Deep Case Studies</div><div class="ccard__value">hjcasestudy.netlify.app</div></div></a>
+                  <a class="ccard" href="https://hjcasestudy.netlify.app/" target="_blank"><div class="ccard__icon" style="background:rgba(151,71,255,0.14);color:#18a0fb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div><div><div class="ccard__label">Deep Case Studies</div><div class="ccard__value">hjcasestudy.netlify.app</div></div></a>
                 </div>
                 <div class="avail-bar">
                   <div class="avail-dot"></div>
-                  <p>Currently available for <strong>full-time roles</strong> and <strong>freelance projects</strong> · Based in Gurugram, India</p>
+                  <p>Open to <strong>full-time roles</strong> and <strong>freelance work</strong> right now · Based in Gurugram, India</p>
                 </div>
               </div>
             </div>
@@ -1038,19 +1048,19 @@ body.outlines .frame__label{color:var(--accent)}
 <script>
 // ── Project data ──────────────────────────────────
 var PD = {
-  deepportfolio:{title:'Deep Portfolio — 5 Documented Case Studies',link:'https://hjcasestudy.netlify.app/',linkLabel:'hjcasestudy.netlify.app',role:'UX Designer + Researcher',problem:'Most portfolios show finished screens. This shows the thinking — brand audit before the first frame, research that changed direction, tokens that made the system scalable.',process:'5 deep-dive case studies each with real brand tokens, design problem, research findings, before/after decisions, and measured outcomes. No filler.',outcome:'20% reduction in handoff friction · 5/5 task completion (Sleepsia) · 7 WCAG failures fixed · 25% drop-off reduction · 68% fewer rage-clicks'},
-  agile:{title:'Agile Ventures — Website Redesign',link:'https://agileventures.net/',linkLabel:'agileventures.net',role:'End-to-end UX/UI',problem:"Existing site didn't reflect scale or credibility. Navigation unclear, visual language outdated.",process:'Audited 5 competitor sites, ran stakeholder interviews, restructured IA, designed clean Figma prototype.',outcome:'Navigation reduced from 4+ clicks to 2 for any key page. Consistent brand identity across all verticals.'},
-  dn:{title:'Dancing Numbers — SaaS Website Redesign',link:'https://www.dancingnumbers.com/',linkLabel:'dancingnumbers.com',role:'UI/UX Designer — in-house',problem:'Deep nested navigation. Free trial CTA buried. First-time visitors couldn\'t understand the product.',process:'Heuristic eval, audience segmentation, rebuilt homepage story around core value — what it does → who it\'s for → why it works.',outcome:'50,000+ users · Navigation from 5 menus to 3 clear sections · Free trial CTA elevated throughout.'},
-  sleepsia:{title:'Sleepsia — D2C E-commerce Redesign',link:'https://www.sleepsia.in/',linkLabel:'sleepsia.in',role:'UI/UX Designer — mobile-first',problem:'Cluttered homepage, 7+ top-level nav categories, trust signals buried below fold on mobile.',process:'Navigation rebuilt around health concerns not product types. Homepage leads with pain-relief promise and social proof.',outcome:'Nav from 7 items to 3 entry points. Trust signals — reviews, certifications — within first screen on mobile.'},
-  lounge:{title:"Sleepsia Lounge — Women's Nightwear D2C",link:'https://sleepsialounge.com/',linkLabel:'sleepsialounge.com',role:'UI/UX Designer + Brand Direction',problem:'New sub-brand needed different emotional register from parent — soft, aspirational, lifestyle-led.',process:'Mood and brand positioning first. Studied Clovia, Zivame, Libas. Designed around lifestyle imagery.',outcome:"Launched on Blinkit, Flipkart, Amazon, Myntra, Meesho. Reviews say brand feels 'so well made' and 'a vibe'."},
-  gopt:{title:'GOPT World — Healthcare Pain App',link:'https://gopt.d-crm.in/',linkLabel:'gopt.d-crm.in',role:'UI/UX Designer',problem:'Describing pain with text is imprecise. Needed interface for all digital literacy levels.',process:'Designed around 3D anatomy model as primary input — tap to select, slider for severity. Minimal form fields.',outcome:'Clean async consultation flow. Richer, more precise patient data. Validated with Figma prototype.'},
-  qe:{title:'Quality Engineering CA — B2B Consulting',link:'https://quality-engineering.ca/',linkLabel:'quality-engineering.ca',role:'UI/UX Designer — WordPress handoff',problem:'Needed to convey technical credibility to manufacturing procurement heads while remaining approachable.',process:'B2B buyer journey mapped. Homepage around trust signals — Ford/Magna/Samsung logos, credentials, direct CTA.',outcome:'Credibility-first website. PPAP, APQP, PFMEA expertise surfaces immediately.'},
-  wallet:{title:'Wallet Z — Fintech Mobile App UI',link:'https://www.behance.net/gallery/202619141/Wallet-Z',linkLabel:'Behance',role:'UI/UX Designer',problem:"Wallet apps feel like scaled-down banking — dense, anxiety-inducing.",process:'3 daily jobs: send, receive, check balance. Premium dark UI, everything in 2 taps or fewer.',outcome:'Polished fintech concept. Published on Behance.'},
-  pawly:{title:'Pawly — Pet Care Mobile App',link:'https://www.behance.net/gallery/209771525/Pawly-Pet-App',linkLabel:'Behance',role:'UI/UX Designer',problem:'Pet apps too clinical or too social. Needed to sit between both.',process:'4 core jobs: care reminders, health records, community, shop. Warm palette without losing clarity.',outcome:'Delightful concept showing utility and warmth can coexist. Published on Behance.'},
-  rajasthan:{title:'Rajasthan Tourism — UI Concept',link:'https://www.behance.net/gallery/199678435/Rajasthan-Tourism-UIUX',linkLabel:'Behance',role:'UI/UX Designer',problem:'Government tourism sites: mismatch between richness of destination and flatness of digital experience.',process:'Terracotta, gold, indigo palette. Tourist journey from discovery → itinerary → booking.',outcome:'Visually cohesive cultural concept. Published on Behance.'},
-  accountspro:{title:'AccountsPro — Accounting & Bookkeeping Website',link:'https://www.accountspro.co',linkLabel:'accountspro.co',role:'UI/UX Designer — IA, wireframes, visual design, WordPress handoff',problem:'Services listed without hierarchy. Small business owners couldn\'t quickly tell if AccountsPro solved their specific problem — QuickBooks error, payroll, or migration.',process:'Restructured IA around service categories (QuickBooks, Sage, Error Resolution, Migration) with problem-first language. Homepage leads with value promise and 24/7 support.',outcome:'Conversion-focused website with strong service hierarchy. Error resolution pages designed to rank and convert. 24/7 support promise visible throughout.'},
-  a1:{title:'A1 — Medicine E-commerce Mobile App',link:'https://www.behance.net/gallery/218903175/A1-Wireframe',linkLabel:'Behance',role:'UI/UX Designer — wireframes to hi-fi, Figma prototype',problem:'Medicine e-commerce needs more trust and clarity than typical retail — right product, legitimate source, simple repeat purchase.',process:'Low-fi wireframes for browse, search, PDP, referral, checkout. Iterated to hi-fi with a clean medical-adjacent visual language. One-tap referral flow.',outcome:'Complete wireframe-to-hi-fi case study showing full mobile UX process. Published on Behance.'},
-  dreamteam:{title:'DreamTeam — Real Estate UI',link:'https://www.behance.net/gallery/211644127/DreamTeam-Real-Estate-UI',linkLabel:'Behance',role:'UI/UX Designer',problem:'Real estate apps overwhelm users with listings before they\'ve defined what they want.',process:'Preference quiz surfaces fewer, better-matched listings. PDPs lead with price, commute, neighbourhood feel. Agent profiles built for trust — reviews, specialisation, response time upfront.',outcome:'Human-centred property discovery concept. Published on Behance.'},
+  deepportfolio:{title:'Deep Portfolio — 5 Documented Case Studies',link:'https://hjcasestudy.netlify.app/',linkLabel:'hjcasestudy.netlify.app',role:'UX Designer + Researcher',problem:'Most portfolios stop at the pretty screens. This one shows the reasoning underneath — the brand audit before the first frame, the research that forced a rethink, the tokens that let a system actually scale.',process:'Five deep dives, each with real brand tokens, a clearly framed problem, what the research surfaced, the before/after calls, and outcomes I can point to. Nothing padded.',outcome:'20% less handoff friction · 5/5 task completion on Sleepsia · 7 WCAG failures resolved · 25% fewer drop-offs · 68% fewer rage-clicks'},
+  agile:{title:'Agile Ventures — Website Redesign',link:'https://agileventures.net/',linkLabel:'agileventures.net',role:'End-to-end UX/UI',problem:"The old site undersold the company's scale and credibility — confusing navigation, a visual language well past its prime.",process:'Audited five competitor sites, interviewed stakeholders, rebuilt the information architecture, and designed a clean prototype in Figma.',outcome:'Any key page now sits two clicks away instead of four-plus, with one consistent brand identity carried across every vertical.'},
+  dn:{title:'Dancing Numbers — SaaS Website Redesign',link:'https://www.dancingnumbers.com/',linkLabel:'dancingnumbers.com',role:'UI/UX Designer — in-house',problem:'Navigation buried things several levels deep, the free-trial CTA was hard to find, and first-time visitors struggled to grasp what the product even did.',process:'Ran a heuristic review, segmented the audience, and rebuilt the homepage around one clear story — what it does, who it\'s for, why it works.',outcome:'50,000+ users · navigation cut from five menus to three clear sections · the free-trial CTA now carries through the whole journey.'},
+  sleepsia:{title:'Sleepsia — D2C E-commerce Redesign',link:'https://www.sleepsia.in/',linkLabel:'sleepsia.in',role:'UI/UX Designer — mobile-first',problem:'A cluttered homepage, seven-plus top-level categories, and trust signals stranded below the fold on mobile.',process:'Rebuilt navigation around health concerns instead of product types, and led the homepage with a pain-relief promise backed by social proof.',outcome:'Navigation down from seven items to three clear entry points, with reviews and certifications surfacing inside the first mobile screen.'},
+  lounge:{title:"Sleepsia Lounge — Women's Nightwear D2C",link:'https://sleepsialounge.com/',linkLabel:'sleepsialounge.com',role:'UI/UX Designer + Brand Direction',problem:'A new sub-brand needed a softer, more aspirational, lifestyle-led voice — clearly distinct from its parent.',process:'Started from mood and positioning, studied Clovia, Zivame and Libas, then designed the whole experience around lifestyle imagery.',outcome:"Now live on Blinkit, Flipkart, Amazon, Myntra and Meesho — with reviews calling the brand 'so well made' and 'a vibe'."},
+  gopt:{title:'GOPT World — Healthcare Pain App',link:'https://gopt.d-crm.in/',linkLabel:'gopt.d-crm.in',role:'UI/UX Designer',problem:'Describing pain in words is vague at best. The interface had to work for every level of digital comfort.',process:'Built the flow around a 3D anatomy model as the main input — tap to pick the spot, slide to set severity — and stripped form fields to the essentials.',outcome:'A clean async consultation flow that hands clinicians far richer, more precise patient data. Validated through a Figma prototype.'},
+  qe:{title:'Quality Engineering CA — B2B Consulting',link:'https://quality-engineering.ca/',linkLabel:'quality-engineering.ca',role:'UI/UX Designer — WordPress handoff',problem:'The site needed to read as technically credible to manufacturing procurement heads without feeling cold or impenetrable.',process:'Mapped the B2B buyer journey and built the homepage around trust — Ford, Magna and Samsung logos, hard credentials, and a direct CTA.',outcome:'A credibility-first site where the PPAP, APQP and PFMEA expertise lands the moment you arrive.'},
+  wallet:{title:'Wallet Z — Fintech Mobile App UI',link:'https://www.behance.net/gallery/202619141/Wallet-Z',linkLabel:'Behance',role:'UI/UX Designer',problem:"Most wallet apps feel like banking shrunk down — dense, and quietly stressful to use.",process:'Designed around the three things people actually do daily — send, receive, check balance — in a premium dark UI where nothing takes more than two taps.',outcome:'A polished fintech concept, published on Behance.'},
+  pawly:{title:'Pawly — Pet Care Mobile App',link:'https://www.behance.net/gallery/209771525/Pawly-Pet-App',linkLabel:'Behance',role:'UI/UX Designer',problem:'Pet apps tend to land either too clinical or too social — this one needed to live in between.',process:'Built around four core jobs — care reminders, health records, community, shop — in a warm palette that never traded away clarity.',outcome:'A concept that shows utility and warmth can share the same screen. Published on Behance.'},
+  rajasthan:{title:'Rajasthan Tourism — UI Concept',link:'https://www.behance.net/gallery/199678435/Rajasthan-Tourism-UIUX',linkLabel:'Behance',role:'UI/UX Designer',problem:'Government tourism sites rarely match the richness of the place — the digital experience falls flat next to the destination.',process:'Worked a terracotta, gold and indigo palette into a tourist journey that runs discovery → itinerary → booking.',outcome:'A visually cohesive cultural concept, published on Behance.'},
+  accountspro:{title:'AccountsPro — Accounting & Bookkeeping Website',link:'https://www.accountspro.co',linkLabel:'accountspro.co',role:'UI/UX Designer — IA, wireframes, visual design, WordPress handoff',problem:'Services sat in a flat list, so small-business owners couldn\'t quickly tell whether AccountsPro solved their specific problem — a QuickBooks error, payroll, or a migration.',process:'Reorganised the IA into clear service categories — QuickBooks, Sage, Error Resolution, Migration — written in problem-first language, with a homepage led by the value promise and round-the-clock support.',outcome:'A conversion-focused site with a real service hierarchy, error-resolution pages built to rank and convert, and the 24/7 support promise visible throughout.'},
+  a1:{title:'A1 — Medicine E-commerce Mobile App',link:'https://www.behance.net/gallery/218903175/A1-Wireframe',linkLabel:'Behance',role:'UI/UX Designer — wireframes to hi-fi, Figma prototype',problem:'Buying medicine online asks for more trust and clarity than ordinary retail — the right product, a legitimate source, and an easy repeat order.',process:'Started with low-fi wireframes for browse, search, product page, referral and checkout, then took it to hi-fi in a clean, medical-adjacent visual language with a one-tap referral flow.',outcome:'A complete wireframe-to-hi-fi case study walking through the full mobile UX process. Published on Behance.'},
+  dreamteam:{title:'DreamTeam — Real Estate UI',link:'https://www.behance.net/gallery/211644127/DreamTeam-Real-Estate-UI',linkLabel:'Behance',role:'UI/UX Designer',problem:'Real estate apps tend to bury people in listings before they\'ve even worked out what they\'re looking for.',process:'A short preference quiz narrows things to fewer, better-matched listings; product pages lead with price, commute and neighbourhood feel; agent profiles build trust up front with reviews, specialisation and response time.',outcome:'A human-centred take on property discovery. Published on Behance.'},
 };
 
 // ── Open/close project expand ──────────────────────
